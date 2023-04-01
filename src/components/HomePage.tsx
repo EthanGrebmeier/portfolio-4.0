@@ -81,7 +81,7 @@ const HomePage: NextPage = () => {
             animationDelay={0.4}
             linkHref="https://assembleinc.com"
             linkText="Assembleinc.com"
-            className="relative col-span-8 row-span-1 flex h-full w-full flex-col justify-center gap-4 bg-[#290C54] text-white lg:col-span-2 lg:row-[span_6/span_6]"
+            className="relative col-span-8 row-span-1 flex h-full w-full flex-col gap-4 bg-[#290C54] text-white md:justify-center lg:col-span-2 lg:row-[span_6/span_6]"
           >
             <h2 className="text-xl lg:-mt-24">
               {" "}

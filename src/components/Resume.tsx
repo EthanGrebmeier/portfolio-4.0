@@ -27,7 +27,7 @@ const Resume: NextPage = () => {
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative mx-auto my-12 flex h-full w-full max-w-[756px] flex-col gap-8 px-6 sm:px-2"
+        className="relative mx-auto my-12 flex h-full w-full max-w-[756px] flex-col gap-4 px-6 sm:px-2 md:gap-8"
       >
         <BubbleLink
           isHover="internal"
@@ -50,20 +50,20 @@ const Resume: NextPage = () => {
             </svg>
           }
         />
-        <div className="flex items-end gap-2 sm:gap-4">
+        <div className="flex flex-col items-end gap-2 sm:gap-4 md:flex-row">
           {" "}
-          <h1 className="-mt-2 text-6xl font-bold sm:text-7xl">
+          <h1 className="xs:text-6xl -mt-2 text-4xl font-bold sm:text-7xl">
             {" "}
             Ethan Grebmeier{" "}
           </h1>
           <p className="text-end text-xl font-medium">Frontend Developer </p>
         </div>
-        <p className="text-xl font-medium">
+        <p className="text-end text-xs font-medium sm:text-xl md:text-start">
           {" "}
           React, Next.js, Tailwind, and Framer Motion{" "}
         </p>
         <div className="flex flex-col gap-4">
-          <motion.h2 variants={item} className="mb-4 w-full text-4xl">
+          <motion.h2 variants={item} className="w-full text-4xl sm:mb-4">
             {" "}
             Experience{" "}
           </motion.h2>
@@ -99,7 +99,7 @@ const Resume: NextPage = () => {
           />
         </div>
         <div className="flex flex-col gap-4">
-          <motion.h2 variants={item} className="mb-4 w-full text-4xl">
+          <motion.h2 variants={item} className=" w-full text-4xl sm:mb-4">
             {" "}
             Education{" "}
           </motion.h2>

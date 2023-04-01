@@ -28,7 +28,10 @@ const ExperienceBlock = ({
     >
       <div className="grid grid-cols-2 sm:block">
         <h3 className="text-3xl font-bold"> {company} </h3>
-        <p className="flex items-end justify-end sm:mb-2 sm:block"> {title} </p>
+        <p className="flex items-end justify-end text-end sm:mb-2 sm:block sm:text-start">
+          {" "}
+          {title}{" "}
+        </p>
         <p className="flex items-end  text-xs sm:block "> {location} </p>
         <p className="flex items-end justify-end text-xs sm:block ">
           {timeframe}{" "}
