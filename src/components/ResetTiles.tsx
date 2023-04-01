@@ -11,13 +11,13 @@ const ResetTiles = () => {
       whileHover={{
         scale: 1.05,
       }}
-      className="fixed bottom-12 left-1/2 z-[100] w-fit rounded-xl bg-white px-8 py-4 shadow-md"
+      className="shadow-m fixed bottom-12 left-1/2 z-[100] w-fit rounded-xl border-2 border-black bg-white px-8 py-4 font-bold"
       style={{
         translateX: "-50%",
       }}
       initial={{ y: 200 }}
       animate={{
-        y: gridState === "init" || gridState === "dragged" ? 200 : 0,
+        y: gridState === "init" ? 200 : 0,
         transition: {
           delay: 0.2,
           duration: 0.2,
