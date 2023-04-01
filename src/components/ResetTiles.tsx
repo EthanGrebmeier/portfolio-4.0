@@ -17,7 +17,7 @@ const ResetTiles = () => {
       }}
       initial={{ y: 200 }}
       animate={{
-        y: gridState === "init" || gridState === "moved" ? 200 : 0,
+        y: gridState === "init" || gridState === "dragged" ? 200 : 0,
         transition: {
           delay: 0.2,
           duration: 0.2,
