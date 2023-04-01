@@ -1,6 +1,5 @@
 "use client";
-import { motion, Variants } from "framer-motion";
-import { useId } from "react";
+import { motion, type Variants } from "framer-motion";
 
 const Rain = () => {
   const variants: Variants = {

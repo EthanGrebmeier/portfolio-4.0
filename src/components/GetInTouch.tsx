@@ -1,8 +1,5 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-import FlipText from "./FlipText";
-import Block from "./Block";
 import useContact from "./context/ContactContext";
 import TactileButton from "./TactileButton";
 

@@ -1,40 +1,33 @@
 "use client";
 
 import { type NextPage } from "next";
-import Image from "next/image";
-import { useEffect, useState } from "react";
 import Block from "./Block";
 import ContextWrapper from "./context/ContextWrapper";
-import HandWave from "./HandWave";
-import ShoppingCart from "./models/ShoppingCart";
-import ModelView from "./ModelView";
 import Rain from "./Rain";
-import Rainbow from "./Rainbow";
 import ResetTiles from "./ResetTiles";
-import Spotify from "./Spotify";
 
 export const metadata = {
   title: "Ethan Grebmeier",
 };
 
-const generateBlocks = () => {
-  return Array.from(Array(5)).map(() => ({
-    width: `${Math.floor(Math.random() * 600)}px `,
-    height: `${Math.floor(Math.random() * 300) + 50}px `,
-  }));
-};
+// const generateBlocks = () => {
+//   return Array.from(Array(5)).map(() => ({
+//     width: `${Math.floor(Math.random() * 600)}px `,
+//     height: `${Math.floor(Math.random() * 300) + 50}px `,
+//   }));
+// };
 
 const Test: NextPage = () => {
-  const [blocks, setBlocks] = useState<
-    {
-      width: string;
-      height: string;
-    }[]
-  >(generateBlocks());
+  // const [blocks, setBlocks] = useState<
+  //   {
+  //     width: string;
+  //     height: string;
+  //   }[]
+  // >(generateBlocks());
 
-  useEffect(() => {
-    setBlocks(generateBlocks());
-  }, []);
+  // useEffect(() => {
+  //   setBlocks(generateBlocks());
+  // }, []);
 
   return (
     <main className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-blue-100 md:min-h-screen">
@@ -86,12 +79,12 @@ const Test: NextPage = () => {
         </div> */}
         <ResetTiles />
       </ContextWrapper>
-      <button
+      {/* <button
         onClick={() => setBlocks(generateBlocks())}
         className="fixed bottom-12 right-8 z-[100] flex w-fit rounded-xl bg-white px-8 py-4 shadow-md"
       >
         Reroll widths
-      </button>
+      </button> */}
     </main>
   );
 };

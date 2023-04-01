@@ -9,10 +9,8 @@ import {
   useTransform,
 } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import { useWindowSize } from "react-use";
-import useRefDimensions from "../hooks/useRefDimensions";
-import useScreenSize from "../hooks/useScreenSize";
+import { useEffect, useState } from "react";
+
 import Notes from "./Notes";
 
 interface PlayerProps {
@@ -24,7 +22,6 @@ const Player = ({ initialSongData }: PlayerProps) => {
   const [textWidth, setTextWidth] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);
   const controls = useAnimationControls();
-  const screenSize = useScreenSize();
 
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-1500, 1500], [0, 360]);

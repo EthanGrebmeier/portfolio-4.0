@@ -1,5 +1,5 @@
 import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
-import GetInTouch from "../components/GetInTouch";
+
 import "../styles/globals.css";
 
 export const HeadingFont = EB_Garamond({

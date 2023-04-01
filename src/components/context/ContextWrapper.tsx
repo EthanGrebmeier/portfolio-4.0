@@ -2,7 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { LayoutGroup, MotionConfig } from "framer-motion";
-import { useEffect, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { BoundaryProvider } from "./BoundaryContext";
 import { ContactProvider } from "./ContactContext";
 import { GridAnimationProvider } from "./GridAnimationContext";

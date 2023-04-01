@@ -1,16 +1,13 @@
 "use client";
 
-import { type AnimationControls } from "framer-motion";
 import {
   createContext,
   type ReactNode,
   useContext,
   useState,
   useEffect,
-  useCallback,
-  Dispatch,
+  type Dispatch,
 } from "react";
-import useScreenSize from "../hooks/useScreenSize";
 
 type GridState = "init" | "dragged";
 

@@ -65,7 +65,7 @@ export async function POST(req: Request) {
     html: html,
   };
 
-  transporter.sendMail(mailOptions, (error: any, info: any) => {
+  transporter.sendMail(mailOptions, (error: any) => {
     if (error) {
       console.log(error);
       return new Response(error, {

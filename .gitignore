@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 
+
 # testing
 /coverage
 
@@ -23,6 +24,7 @@ next-env.d.ts
 # misc
 .DS_Store
 *.pem
+/ignore
 
 # debug
 npm-debug.log*

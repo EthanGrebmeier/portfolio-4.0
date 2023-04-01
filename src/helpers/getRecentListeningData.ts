@@ -32,9 +32,6 @@ export const getRecentListening = async () => {
   } catch (e) {
     console.log("Error fetching access token: ");
     console.error(e);
-    return {
-      error: "Error fetching recently listened to",
-    };
   }
 
   try {
@@ -65,8 +62,5 @@ export const getRecentListening = async () => {
   } catch (e) {
     console.log("Error fetching recently listened to: ");
     console.error(e);
-    return {
-      error: "Error fetching recently listened to",
-    };
   }
 };

@@ -1,5 +1,4 @@
 import { getRecentListening } from "../../helpers/getRecentListeningData";
-import Block from "../Block";
 import Player from "./Player";
 
 const Spotify = async () => {
