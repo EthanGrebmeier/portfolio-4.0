@@ -50,20 +50,23 @@ const Resume: NextPage = () => {
             </svg>
           }
         />
-        <div className="flex flex-col items-end gap-2 sm:gap-4 md:flex-row">
+        <div className="flex flex-col sm:items-end sm:gap-4 md:flex-row">
           {" "}
-          <h1 className="xs:text-6xl -mt-2 text-4xl font-bold sm:text-7xl">
+          <h1 className="xs:text-6xl mt-4 text-4xl font-bold sm:-mt-2 sm:text-7xl">
             {" "}
             Ethan Grebmeier{" "}
           </h1>
-          <p className="text-end text-xl font-medium">Frontend Developer </p>
+          <p className="text-xl font-medium sm:text-end">Frontend Developer </p>
         </div>
-        <p className="text-end text-xs font-medium sm:text-xl md:text-start">
+        <p className="text-xs font-medium sm:text-end sm:text-xl md:text-start">
           {" "}
           React, Next.js, Tailwind, and Framer Motion{" "}
         </p>
-        <div className="flex flex-col gap-4">
-          <motion.h2 variants={item} className="w-full text-4xl sm:mb-4">
+        <div className="mt-4 flex flex-col gap-8 sm:mt-8 sm:gap-4">
+          <motion.h2
+            variants={item}
+            className="-mb-4 w-full text-3xl sm:mb-4 sm:text-4xl"
+          >
             {" "}
             Experience{" "}
           </motion.h2>
@@ -98,8 +101,11 @@ const Resume: NextPage = () => {
             ]}
           />
         </div>
-        <div className="flex flex-col gap-4">
-          <motion.h2 variants={item} className=" w-full text-4xl sm:mb-4">
+        <div className="mt-4 flex flex-col gap-4 sm:mt-0">
+          <motion.h2
+            variants={item}
+            className=" w-full text-3xl sm:mb-4 sm:text-4xl"
+          >
             {" "}
             Education{" "}
           </motion.h2>
