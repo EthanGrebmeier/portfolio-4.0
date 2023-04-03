@@ -21,10 +21,10 @@ const HomePage: NextPage = () => {
   return (
     <main className="relative flex h-fit flex-col items-center justify-center overflow-hidden md:min-h-screen">
       <ContextWrapper>
-        <div className="container relative my-4 grid h-fit w-full grid-cols-8 grid-rows-[repeat(14,160px)] items-center justify-center gap-2 px-4 sm:gap-4 md:my-16 lg:grid-rows-[repeat(10,70px)]">
+        <div className="container relative my-4 grid h-fit w-full grid-cols-8 grid-rows-[repeat(28,50px)] items-center justify-center gap-2 px-4 sm:gap-4 md:my-16 lg:grid-rows-[repeat(10,70px)]">
           <Block
             animationDelay={0.1}
-            className="relative col-span-8 row-span-2 bg-purple-300  md:grid-cols-2 lg:col-span-3 lg:row-span-3"
+            className="relative col-span-8 row-span-4 bg-purple-300  md:grid-cols-2 lg:col-span-3 lg:row-span-3"
           >
             <div className=" flex h-full max-w-lg flex-col justify-center gap-4">
               <h1 className="text-6xl font-bold">
@@ -39,7 +39,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={0.2}
-            className="col-span-4 row-span-1 flex items-center gap-2 bg-pink-300 sm:gap-6 lg:col-span-2 lg:row-span-2"
+            className="col-span-4 row-span-2 flex items-center gap-2 bg-pink-300 sm:gap-6 lg:col-span-2 lg:row-span-2"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={0.3}
-            className="col-span-4 row-span-1 flex items-center justify-center overflow-hidden bg-blue-300 lg:col-span-1 lg:row-[span_6/span_6]"
+            className="col-span-4 row-span-2 flex items-center justify-center overflow-hidden bg-blue-300 lg:col-span-1 lg:row-[span_6/span_6]"
           >
             <Image
               fill
@@ -81,9 +81,9 @@ const HomePage: NextPage = () => {
             animationDelay={0.4}
             linkHref="https://assembleinc.com"
             linkText="Assembleinc.com"
-            className="relative col-span-8 row-span-1 flex h-full w-full flex-col gap-4 bg-[#290C54] text-white md:justify-center lg:col-span-2 lg:row-[span_6/span_6]"
+            className="relative col-span-8 row-span-3 flex h-full w-full flex-col gap-4 bg-[#290C54] text-white md:justify-center lg:col-span-2 lg:row-[span_6/span_6]"
           >
-            <h2 className="text-xl lg:-mt-24">
+            <h2 className="mt-4 text-xl lg:-mt-24">
               {" "}
               Currently building cutting edge storefronts at{" "}
               <br className="hidden sm:block" />
@@ -119,19 +119,19 @@ const HomePage: NextPage = () => {
 
           <Block
             animationDelay={0.5}
-            className="relative col-span-8 row-span-1 flex items-center justify-center bg-yellow-300 lg:col-span-2 lg:row-span-4"
+            className="relative col-span-8 row-span-3 flex items-center justify-center bg-yellow-300 lg:col-span-2 lg:row-span-4"
           >
             <h2>
               <FlipText
                 text="Frontend Developer"
-                className="text-5xl font-bold md:text-end md:text-4xl xl:text-6xl"
+                className="mt-1 text-5xl font-bold md:text-end md:text-4xl xl:text-6xl"
               />{" "}
             </h2>
           </Block>
 
           <Block
             animationDelay={0.6}
-            className="isolate col-span-8 row-span-2 bg-white lg:col-span-3 lg:row-span-3"
+            className="isolate col-span-8 row-span-6 bg-white lg:col-span-3 lg:row-span-3"
           >
             <div className="absolute bottom-0 right-8 z-[-1]">
               <HandWave />
@@ -147,7 +147,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={0.7}
-            className="col-span-8 row-span-1 bg-black lg:col-span-2 lg:row-span-4"
+            className="col-span-8 row-span-3 bg-black lg:col-span-2 lg:row-span-4"
             linkHref="https://github.com/EthanGrebmeier"
             linkText="View profile"
           >
@@ -156,7 +156,7 @@ const HomePage: NextPage = () => {
               {" "}
               @EthanGrebmeier on Github
             </h2>
-            <div className=" absolute bottom-2 right-2">
+            <div className=" absolute bottom-0 right-2">
               <svg
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -172,7 +172,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={0.8}
-            className="col-span-8 row-span-1 bg-indigo-300 lg:col-span-2 lg:row-span-4"
+            className="col-span-8 row-span-3 bg-indigo-300 lg:col-span-2 lg:row-span-4"
           >
             <div className="flex h-full flex-col justify-between">
               <h2 className="text-3xl"> You are visitor number: </h2>
@@ -181,7 +181,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={0.9}
-            className="col-span-8 row-span-2 items-center bg-green-300 lg:col-span-2 lg:row-span-4"
+            className="col-span-8 row-span-5 items-center bg-green-300 lg:col-span-2 lg:row-span-4"
           >
             {/* @ts-expect-error Upstream issue fixed later on */}
             <Spotify />
@@ -253,7 +253,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={1.1}
-            className={`col-span-8 row-span-1 flex items-center justify-center bg-white lg:col-span-2 lg:row-span-2`}
+            className={`col-span-8 row-span-2 flex items-center justify-center bg-white lg:col-span-2 lg:row-span-2`}
           >
             {" "}
             <GetInTouch />
