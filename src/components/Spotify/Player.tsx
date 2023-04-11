@@ -32,6 +32,7 @@ const Player = ({ initialSongData }: PlayerProps) => {
       const songDataResponseBody = await songData.json();
 
       if (songDataResponseBody) {
+        console.log(songDataResponseBody);
         setSongData(songDataResponseBody);
       }
     }, 1000 * 60);

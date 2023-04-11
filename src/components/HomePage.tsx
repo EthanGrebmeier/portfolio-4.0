@@ -12,6 +12,7 @@ import Rain from "./Rain";
 import ResetTiles from "./ResetTiles";
 import Spotify from "./Spotify";
 import VisitorCounter from "./VisitorCounter";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Ethan Grebmeier",
@@ -183,8 +184,10 @@ const HomePage: NextPage = () => {
             animationDelay={0.9}
             className="col-span-8 row-span-5 items-center bg-green-300 lg:col-span-2 lg:row-span-4"
           >
+            <Suspense fallback={<div className="text-3xl"> Loading... </div>}>
             {/* @ts-expect-error Upstream issue fixed later on */}
             <Spotify />
+            </Suspense>
           </Block>
           {/* <Block
             animationDelay={1}
