@@ -83,7 +83,7 @@ const Player = ({ initialSongData }: PlayerProps) => {
             >
               {" "}
               {songData.name} -{" "}
-              {songData.artists.map(
+              {songData.artists?.map(
                 (artist, index) => (index !== 0 ? ", " : "") + artist.name
               )}{" "}
             </motion.p>
