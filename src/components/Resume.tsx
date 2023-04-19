@@ -77,7 +77,7 @@ const Resume: NextPage = () => {
             title="Frontend Developer"
             description={[
               "Develop a Next.js retail starter kit that integrates with multiple Ecommerce and CMS platforms, reducing the time to set up a headless storefront by 60%.",
-              "Lead frontend development and maintenance of multiple ecommerce storefronts.",
+              "Lead frontend development and maintenance of multiple Ecommerce storefronts.",
             ]}
           />
           <ExperienceBlock
