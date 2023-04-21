@@ -116,13 +116,17 @@ const Player = ({ initialSongData }: PlayerProps) => {
             style={{ rotate }}
             key={JSON.stringify(songData)}
           >
-            <Image
-              alt={`cover art for ${songData.name}`}
-              className="h-full w-full select-none rounded-full border-2 border-white"
-              width={songData.image.width}
-              height={songData.image.height}
-              src={songData.image.url}
-            />
+            {songData.image ? (
+              <Image
+                alt={`cover art for ${songData.name}`}
+                className="h-full w-full select-none rounded-full border-2 border-white"
+                width={songData.image.width}
+                height={songData.image.height}
+                src={songData.image.url}
+              />
+            ) : (
+              <div className="h-full w-full select-none rounded-full border-2 border-white bg-green-500"></div>
+            )}
           </motion.div>
         </motion.div>
       </AnimatePresence>
