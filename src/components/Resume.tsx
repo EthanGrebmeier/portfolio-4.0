@@ -76,8 +76,8 @@ const Resume: NextPage = () => {
             timeframe="2021 - Present"
             title="Frontend Developer"
             description={[
-              "Develop a Next.js retail starter kit that integrates with multiple Ecommerce and CMS platforms, reducing the time to set up a headless storefront by 60%.",
-              "Lead frontend development and maintenance of multiple Ecommerce storefronts.",
+              "Developing a Next.js retail starter kit that integrates with multiple Ecommerce and CMS platforms, reducing the time to set up a headless storefront by 60%.",
+              "Leading frontend development and maintenance of multiple Ecommerce storefronts.",
             ]}
           />
           <ExperienceBlock
@@ -96,7 +96,7 @@ const Resume: NextPage = () => {
             timeframe="2020 - 2021"
             title="Frontend Web Developer"
             description={[
-              "Worked with designers to establish implement branding across multiple websites.",
+              "Worked with designers to establish implement & branding across multiple websites.",
               "Designed, built and maintained a housing website in React to sell upwards of $6000 in ad space to local property managers.",
             ]}
           />
