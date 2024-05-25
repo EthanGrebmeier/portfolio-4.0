@@ -88,9 +88,9 @@ const HomePage: NextPage = () => {
               {" "}
               Currently building cutting edge storefronts at{" "}
               <br className="hidden sm:block" />
-              <span className="ml-1 text-3xl font-bold md:ml-0">
+              <span className="ml-1 text-3xl font-bold uppercase md:ml-0">
                 {" "}
-                Assemble Inc.{" "}
+                Asmbl
               </span>
             </h2>
             <svg
@@ -185,8 +185,7 @@ const HomePage: NextPage = () => {
             className="col-span-8 row-span-5 items-center bg-green-300 lg:col-span-2 lg:row-span-4"
           >
             <Suspense fallback={<div className="text-3xl"> Loading... </div>}>
-            {/* @ts-expect-error Upstream issue fixed later on */}
-            <Spotify />
+              <Spotify />
             </Suspense>
           </Block>
           {/* <Block
