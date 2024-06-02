@@ -13,11 +13,13 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
-  experimental: {
-    appDir: true,
-  },
   images: {
-    domains: ["i.scdn.co", "images.unsplash.com"],
+    remotePatterns: [
+      {
+        hostname: "i.scdn.co",
+      },
+      { hostname: "images.unsplash.com" },
+    ],
   },
 };
 export default config;

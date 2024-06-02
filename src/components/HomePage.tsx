@@ -125,7 +125,7 @@ const HomePage: NextPage = () => {
             <h2>
               <FlipText
                 text="Frontend Developer"
-                className="mt-1 text-5xl font-bold md:text-end md:text-4xl xl:text-6xl"
+                className="mt-1 text-5xl font-bold md:text-end md:text-4xl xl:text-5xl"
               />{" "}
             </h2>
           </Block>
@@ -200,32 +200,6 @@ const HomePage: NextPage = () => {
 
           <Block
             animationDelay={1.2}
-            className="group col-span-8 row-span-1 flex items-center bg-amber-200 lg:col-span-2 lg:row-span-1"
-          >
-            <Link className="w-full text-3xl" href="/resume">
-              <span className="flex w-full items-center justify-between group-hover:underline">
-                {" "}
-                Resume{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="h-10 w-10"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13"
-                  />
-                </svg>
-              </span>
-            </Link>
-          </Block>
-
-          <Block
-            animationDelay={1.2}
             className="group col-span-8 row-span-1 flex items-center bg-blue-300 lg:col-span-2 lg:row-span-1"
           >
             <Link
@@ -255,7 +229,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={1.1}
-            className={`col-span-8 row-span-2 flex items-center justify-center bg-white lg:col-span-2 lg:row-span-2`}
+            className={`col-span-8 row-span-2 flex items-center justify-center bg-white lg:col-span-2 lg:row-span-3`}
           >
             {" "}
             <GetInTouch />

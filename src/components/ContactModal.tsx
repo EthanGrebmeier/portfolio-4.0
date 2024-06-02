@@ -61,7 +61,7 @@ const ContactModal = () => {
 
     if (formErrorFields.length) {
       return setFormError(
-        `The following fields are required: ${formErrorFields.join(", ")}`
+        `The following fields are required: ${formErrorFields.join(", ")}`,
       );
     }
 
@@ -100,7 +100,7 @@ const ContactModal = () => {
             >
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4  border-none bg-none"
+                className="absolute right-4 top-4  border-none bg-none"
               >
                 <motion.svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -195,15 +195,15 @@ const ContactModal = () => {
                       </svg>
                     )
                   }
-                  className="mt-4 bg-green-400"
+                  className="bg-green-400"
                 >
                   {isSuccess
                     ? "Sent! "
                     : isLoading
-                    ? "Loading..."
-                    : isError
-                    ? "Error"
-                    : "Send"}
+                      ? "Loading..."
+                      : isError
+                        ? "Error"
+                        : "Send"}
                 </TactileButton>
               </form>
             </Dialog.Panel>

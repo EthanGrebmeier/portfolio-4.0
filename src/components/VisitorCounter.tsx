@@ -27,7 +27,7 @@ const VisitorCounter = () => {
     }
   }, []);
   const [displayedCount, setDisplayedCount] = useState(
-    prefersReducedMotion ? count : 0
+    prefersReducedMotion ? count : 0,
   );
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const VisitorCounter = () => {
   return (
     <motion.p
       ref={counterRef}
-      className="inline-block text-7xl tracking-tighter md:text-9xl"
+      className="inline-block text-6xl tracking-tighter md:text-8xl"
     >
       {count ? (
         String(displayedCount)

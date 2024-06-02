@@ -1,5 +1,6 @@
 "use client";
 import { motion, type Variants } from "framer-motion";
+import { Fragment } from "react";
 
 const FlipText = ({
   text,
@@ -31,7 +32,7 @@ const FlipText = ({
       className={`-mt-[0.25em] inline-block text-center ${className}`}
     >
       {text?.split(" ").map((word, wordIndex) => (
-        <>
+        <Fragment key={`${word + wordIndex}`}>
           <motion.span
             transition={{ staggerChildren: wordIndex * 1 }}
             className={`${
@@ -54,7 +55,7 @@ const FlipText = ({
               </motion.span>
             ))}{" "}
           </motion.span>{" "}
-        </>
+        </Fragment>
       ))}
     </motion.span>
   );
