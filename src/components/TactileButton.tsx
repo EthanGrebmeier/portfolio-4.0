@@ -21,34 +21,36 @@ const TactileButton = ({
 }: TactileButtonProps) => {
   const buttonVariants: Variants = {
     initial: {
-      y: 0,
+      y: -10,
     },
     hover: {
-      y: 3,
-      filter: "drop-shadow(0px 9px 0px #000)",
+      y: -5,
     },
     tap: {
-      y: 9,
-      filter: "drop-shadow(0px 3px 0px #000)",
+      y: 0,
     },
   };
   return (
-    <motion.button
-      className={` ${className} mb-2 flex w-fit items-center gap-4 rounded-l-full rounded-r-full border-4 border-black  py-1 px-4 drop-shadow-[0px_12px_0px_#000]`}
-      initial="initial"
-      whileHover="hover"
-      whileTap="tap"
-      variants={buttonVariants}
+    <button
+      className={`mb-2 w-fit rounded-full bg-black p-0`}
       onClick={onClick}
       disabled={disabled}
     >
-      <FlipText
-        text={children}
-        className="-mt-1 text-xl font-bold"
-        moveDistance="0.1em"
-      ></FlipText>
-      {icon ? icon : null}
-    </motion.button>
+      <motion.div
+        initial="initial"
+        whileHover="hover"
+        whileTap="tap"
+        variants={buttonVariants}
+        className={`flex w-fit items-center gap-4 rounded-l-full rounded-r-full border-4 border-black  px-4 py-1 ${className}`}
+      >
+        <FlipText
+          text={children}
+          className=" text-xl font-bold"
+          moveDistance="0.1em"
+        ></FlipText>
+        {icon ? icon : null}
+      </motion.div>
+    </button>
   );
 };
 
