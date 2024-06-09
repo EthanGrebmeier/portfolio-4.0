@@ -2,14 +2,14 @@ import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 
 import "../styles/globals.css";
 
-export const HeadingFont = EB_Garamond({
+const HeadingFont = EB_Garamond({
   weight: ["400", "600"],
   subsets: ["latin"],
   display: "swap",
   variable: "--font-heading",
 });
 
-export const BodyFont = Plus_Jakarta_Sans({
+const BodyFont = Plus_Jakarta_Sans({
   weight: ["400", "600"],
   subsets: ["latin"],
   display: "swap",
@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${BodyFont.className} bg-blue-100`}>{children}</body>
+      <body className={`${BodyFont.className} `}>{children}</body>
     </html>
   );
 }
