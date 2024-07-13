@@ -24,7 +24,7 @@ const HomePage: NextPage = () => {
   return (
     <main className="relative flex h-fit flex-col items-center justify-center overflow-hidden md:min-h-screen">
       <ContextWrapper>
-        <div className="container relative my-4 grid h-fit w-full grid-cols-8 grid-rows-[repeat(31,60px)] items-center justify-center gap-2 px-4 sm:gap-4 md:my-16 lg:grid-rows-[repeat(10,70px)]">
+        <div className="container relative my-4 grid h-fit w-full grid-cols-8 grid-rows-[repeat(31,60px)] items-center justify-center gap-2 px-4 sm:gap-4 md:my-12 lg:grid-rows-[repeat(10,70px)]">
           <Block
             animationDelay={0.1}
             className="relative col-span-8 row-span-3 bg-purple-300  md:grid-cols-2 lg:col-span-3 lg:row-span-3"
@@ -40,7 +40,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={0.2}
-            className="col-span-4 row-span-2 flex items-center justify-center gap-2 bg-blue-200 sm:gap-4 lg:col-span-2 lg:row-span-3 "
+            className="col-span-4 row-span-2 flex items-center justify-center gap-2 bg-blue-300 sm:gap-4 lg:col-span-2 lg:row-span-3 "
           >
             <MapPin size={50} />
             <h2 className="xs:text-2xl w-min font-serif text-xl leading-tight lg:text-3xl">
@@ -50,7 +50,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={0.3}
-            className="col-span-4 row-span-2 flex items-center justify-center overflow-hidden bg-red-300 p-0 pt-2 sm:p-0 sm:pt-2 md:p-0 lg:col-span-1 lg:row-[span_6/span_6]"
+            className="col-span-4 row-span-2 flex items-center justify-center overflow-hidden bg-red-400 p-0 pt-2 sm:p-0 sm:pt-2 md:p-0 lg:col-span-1 lg:row-[span_6/span_6]"
           >
             <Rain />
             <div className="relative h-full w-[60%] md:w-full">
@@ -66,7 +66,7 @@ const HomePage: NextPage = () => {
             animationDelay={0.4}
             linkHref="https://assembleinc.com"
             linkText="Assembleinc.com"
-            className="relative col-span-8 row-span-2 flex h-full w-full flex-col gap-4 bg-pink-200 text-black md:justify-center lg:col-span-2 lg:row-[span_6/span_6]"
+            className="relative col-span-8 row-span-2 flex h-full w-full flex-col gap-4 bg-pink-300 text-black md:justify-center lg:col-span-2 lg:row-[span_6/span_6]"
           >
             <h2 className="mt-4 md:text-xl lg:-mt-24">
               {" "}
@@ -104,7 +104,7 @@ const HomePage: NextPage = () => {
 
           <Block
             animationDelay={0.5}
-            className="relative col-span-8 row-span-3 flex items-center justify-center bg-yellow-200 lg:col-span-2 lg:row-span-3"
+            className="relative col-span-8 row-span-3 flex items-center justify-center bg-yellow-300 lg:col-span-2 lg:row-span-3"
           >
             <h2>
               <FlipText
@@ -157,7 +157,7 @@ const HomePage: NextPage = () => {
 
           <Block
             animationDelay={0.9}
-            className="col-span-8 row-span-5 items-center bg-green-300 lg:col-span-2 lg:row-span-4"
+            className="col-span-8 row-span-5 items-center bg-green-400 lg:col-span-2 lg:row-span-4"
           >
             <Suspense fallback={<div className="text-3xl"> Loading... </div>}>
               <Spotify />
@@ -189,7 +189,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={1.2}
-            className="group col-span-8 row-span-1 flex items-center bg-orange-300 lg:col-span-2 lg:row-span-1"
+            className="group col-span-8 row-span-1 flex items-center bg-orange-400 lg:col-span-2 lg:row-span-1"
           >
             <Link
               className="w-full font-serif text-2xl font-medium"
