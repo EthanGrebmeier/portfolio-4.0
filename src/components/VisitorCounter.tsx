@@ -30,9 +30,9 @@ const VisitorCounter = () => {
     prefersReducedMotion ? count : 0,
   );
 
+  const timeout = Math.min(200, 1200 / count);
+  console.log(timeout);
   useEffect(() => {
-    const timeout = Math.min(200, 3000 / count);
-
     if (isInView) {
       tickerTimeout.current = setTimeout(() => {
         displayedCount < count && setDisplayedCount(displayedCount + 1);

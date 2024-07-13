@@ -56,7 +56,7 @@ const Resume: NextPage = () => {
             {" "}
             Ethan Grebmeier{" "}
           </h1>
-          <p className="text-xl font-medium sm:text-end">Frontend Developer </p>
+          <p className="text-xl font-medium sm:text-end">Design Engineer </p>
         </div>
         <p className="text-xs font-medium sm:text-end sm:text-xl md:text-start">
           {" "}

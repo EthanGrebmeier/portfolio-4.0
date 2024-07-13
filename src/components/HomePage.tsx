@@ -13,6 +13,8 @@ import ResetTiles from "./ResetTiles";
 import Spotify from "./Spotify";
 import VisitorCounter from "./VisitorCounter";
 import { Suspense } from "react";
+import HomepageLink from "./blog/homepage-link";
+import { BriefcaseBusiness } from "lucide-react";
 
 export const metadata = {
   title: "Ethan Grebmeier",
@@ -22,19 +24,18 @@ const HomePage: NextPage = () => {
   return (
     <main className="relative flex h-fit flex-col items-center justify-center overflow-hidden md:min-h-screen">
       <ContextWrapper>
-        <div className="container relative my-4 grid h-fit w-full grid-cols-8 grid-rows-[repeat(28,50px)] items-center justify-center gap-2 px-4 sm:gap-4 md:my-16 lg:grid-rows-[repeat(10,70px)]">
+        <div className="container relative my-4 grid h-fit w-full grid-cols-8 grid-rows-[repeat(31,60px)] items-center justify-center gap-2 px-4 sm:gap-4 md:my-16 lg:grid-rows-[repeat(10,70px)]">
           <Block
             animationDelay={0.1}
-            className="relative col-span-8 row-span-4 bg-purple-300  md:grid-cols-2 lg:col-span-3 lg:row-span-3"
+            className="relative col-span-8 row-span-3 bg-purple-300  md:grid-cols-2 lg:col-span-3 lg:row-span-3"
           >
-            <div className=" flex h-full max-w-lg flex-col justify-center gap-4">
-              <h1 className="text-6xl font-bold">
+            <div className=" flex h-full max-w-lg items-center justify-center gap-4 md:gap-8">
+              <div className="relative aspect-square w-16 md:w-24">
+                <Image fill alt="My doodled face" src="/images/Smile.svg" />
+              </div>
+              <h1 className="font-serif text-4xl font-medium md:text-6xl">
                 Ethan <br /> Grebmeier
               </h1>
-              <FlipText
-                className="w-full text-end"
-                text="Developing rich ecommerce experiences"
-              />{" "}
             </div>
             <div className="flex h-full w-full items-center justify-center"></div>
           </Block>
@@ -61,7 +62,7 @@ const HomePage: NextPage = () => {
                 d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
               />
             </svg>
-            <h2 className="w-min text-lg md:text-2xl xl:text-3xl">
+            <h2 className="w-min text-lg leading-tight md:text-2xl xl:text-3xl">
               {" "}
               Seattle, Washington
             </h2>
@@ -82,9 +83,9 @@ const HomePage: NextPage = () => {
             animationDelay={0.4}
             linkHref="https://assembleinc.com"
             linkText="Assembleinc.com"
-            className="relative col-span-8 row-span-3 flex h-full w-full flex-col gap-4 bg-[#290C54] text-white md:justify-center lg:col-span-2 lg:row-[span_6/span_6]"
+            className="relative col-span-8 row-span-2 flex h-full w-full flex-col gap-4 bg-[#290C54] text-white md:justify-center lg:col-span-2 lg:row-[span_6/span_6]"
           >
-            <h2 className="mt-4 text-xl lg:-mt-24">
+            <h2 className="mt-4 md:text-xl lg:-mt-24">
               {" "}
               Currently building cutting edge storefronts at{" "}
               <br className="hidden sm:block" />
@@ -98,7 +99,7 @@ const HomePage: NextPage = () => {
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 240 240"
-              className="absolute bottom-0 right-0 h-12 w-12 sm:right-2 sm:bottom-2 lg:bottom-8 lg:h-44 lg:w-44"
+              className="absolute bottom-0 right-0 h-12 w-12 sm:bottom-2 sm:right-2 lg:bottom-8 lg:h-44 lg:w-44"
               fill="white"
             >
               <defs></defs>
@@ -124,7 +125,7 @@ const HomePage: NextPage = () => {
           >
             <h2>
               <FlipText
-                text="Frontend Developer"
+                text="Design Engineer"
                 className="mt-1 text-5xl font-bold md:text-end md:text-4xl xl:text-5xl"
               />{" "}
             </h2>
@@ -132,18 +133,17 @@ const HomePage: NextPage = () => {
 
           <Block
             animationDelay={0.6}
-            className="isolate col-span-8 row-span-6 bg-white lg:col-span-3 lg:row-span-3"
+            className="isolate col-span-8 row-span-5 bg-white lg:col-span-3 lg:row-span-3"
           >
             <div className="absolute bottom-0 right-8 z-[-1]">
               <HandWave />
             </div>
-            <p className="z-[3] mb-4 text-3xl font-bold"> Hey there! </p>
-            <p className="z-[3] text-xl">
+            <p className="z-[3] mb-4 font-serif text-3xl"> Hey there! </p>
+            <p className="z-[3] text-lg">
               {" "}
               Thanks for checking out my site! <br className="flex md:hidden" />{" "}
-              <br className="flex md:hidden" /> I&rsquo;m a frontend developer
-              thats passionate about creating engaging, interactive experiences
-              on the web.
+              <br className="flex md:hidden" /> I&rsquo;m a Design Engineer
+              creating engaging, interactive experiences on the web.
             </p>
           </Block>
           <Block
@@ -171,15 +171,7 @@ const HomePage: NextPage = () => {
               </svg>
             </div>
           </Block>
-          <Block
-            animationDelay={0.8}
-            className="col-span-8 row-span-3 bg-indigo-300 lg:col-span-2 lg:row-span-4"
-          >
-            <div className="flex h-full flex-col justify-between">
-              <h2 className="text-3xl"> You are visitor number: </h2>
-              <VisitorCounter />
-            </div>
-          </Block>
+
           <Block
             animationDelay={0.9}
             className="col-span-8 row-span-5 items-center bg-green-300 lg:col-span-2 lg:row-span-4"
@@ -199,40 +191,44 @@ const HomePage: NextPage = () => {
           </Block> */}
 
           <Block
+            animationDelay={0.8}
+            className="col-span-8 row-span-4 bg-indigo-300 lg:col-span-2 lg:row-span-4"
+          >
+            <HomepageLink />
+          </Block>
+
+          <Block
             animationDelay={1.2}
-            className="group col-span-8 row-span-1 flex items-center bg-blue-300 lg:col-span-2 lg:row-span-1"
+            className="group col-span-8 row-span-1 flex items-center bg-orange-300 lg:col-span-2 lg:row-span-1"
           >
             <Link
-              className="w-full text-3xl"
+              className="w-full font-serif text-2xl font-medium"
               href="https://www.linkedin.com/in/ethan-g-b23439116/"
               target="_blank"
             >
               <span className="flex w-full items-center justify-between group-hover:underline">
                 {" "}
                 LinkedIn{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="h-10 w-10"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"
-                  />
-                </svg>
+                <div className="rounded-lg border-2 border-black bg-yellow-300 p-2">
+                  <BriefcaseBusiness size={20} />
+                </div>
               </span>
             </Link>
           </Block>
           <Block
             animationDelay={1.1}
-            className={`col-span-8 row-span-2 flex items-center justify-center bg-white lg:col-span-2 lg:row-span-3`}
+            className={`col-span-8 row-span-3 flex items-center justify-center bg-white lg:col-span-2 lg:row-span-2`}
           >
             {" "}
             <GetInTouch />
+          </Block>
+          <Block
+            animationDelay={1.1}
+            className={`col-span-8 row-span-1 flex items-center justify-center bg-red-400 lg:col-span-2 lg:row-span-1`}
+          >
+            <div className="flex w-full justify-center gap-4">
+              <p className="font-serif text-2xl">make it fun</p>
+            </div>
           </Block>
         </div>
         <ResetTiles />

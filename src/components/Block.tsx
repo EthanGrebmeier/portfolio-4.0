@@ -105,7 +105,7 @@ const Block = ({
         height ? height : "h-full"
       }  ${
         width ? width : "w-full"
-      }  overflow-hidden rounded-xl border-2 border-black p-2 @container sm:py-4 md:p-4`}
+      }  overflow-hidden rounded-xl border-2 border-black p-2 @container sm:py-4 md:px-4 md:py-2`}
       style={{ ...style, zIndex: zIndex || gridZIndex }}
       variants={variants}
       initial="initial"
