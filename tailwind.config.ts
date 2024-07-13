@@ -5,7 +5,7 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["Plus Jakarta Sans", "sans-serif"],
-        serif: ["Junicode", "serif"],
+        serif: "var(--font-serif)",
       },
       colors: {
         background: "hsl(var(--background))",
