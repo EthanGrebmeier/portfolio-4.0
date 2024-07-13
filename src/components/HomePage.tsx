@@ -14,7 +14,7 @@ import Spotify from "./Spotify";
 import VisitorCounter from "./VisitorCounter";
 import { Suspense } from "react";
 import HomepageLink from "./blog/homepage-link";
-import { BriefcaseBusiness } from "lucide-react";
+import { BriefcaseBusiness, Locate, LocateFixed, MapPin } from "lucide-react";
 
 export const metadata = {
   title: "Ethan Grebmeier",
@@ -31,59 +31,42 @@ const HomePage: NextPage = () => {
           >
             <div className=" flex h-full max-w-lg items-center justify-center gap-4 md:gap-8">
               <div className="relative aspect-square w-16 md:w-24">
-                <Image fill alt="My doodled face" src="/images/Smile.svg" />
+                <Image fill alt="My doodled face" src="/images/Smile2.svg" />
               </div>
               <h1 className="font-serif text-4xl font-medium md:text-6xl">
                 Ethan <br /> Grebmeier
               </h1>
             </div>
-            <div className="flex h-full w-full items-center justify-center"></div>
           </Block>
           <Block
             animationDelay={0.2}
-            className="col-span-4 row-span-2 flex items-center gap-2 bg-pink-300 sm:gap-6 lg:col-span-2 lg:row-span-2"
+            className="col-span-4 row-span-2 flex items-center justify-center gap-2 bg-blue-200 sm:gap-4 lg:col-span-2 lg:row-span-3 "
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="h-16 w-16"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-              />
-            </svg>
-            <h2 className="w-min text-lg leading-tight md:text-2xl xl:text-3xl">
+            <MapPin size={50} />
+            <h2 className="xs:text-2xl w-min font-serif text-xl leading-tight lg:text-3xl">
               {" "}
               Seattle, Washington
             </h2>
-            <Rain />
           </Block>
           <Block
             animationDelay={0.3}
-            className="col-span-4 row-span-2 flex items-center justify-center overflow-hidden bg-blue-300 lg:col-span-1 lg:row-[span_6/span_6]"
+            className="col-span-4 row-span-2 flex items-center justify-center overflow-hidden bg-red-300 p-0 pt-2 sm:p-0 sm:pt-2 md:p-0 lg:col-span-1 lg:row-[span_6/span_6]"
           >
-            <Image
-              fill
-              className="pointer-events-none select-none object-cover"
-              alt="The space needle"
-              src="https://images.unsplash.com/photo-1613525850352-52de526e2336?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3024&q=80"
-            />
+            <Rain />
+            <div className="relative h-full w-[60%] md:w-full">
+              <Image
+                fill
+                className="pointer-events-none select-none object-cover object-top md:object-none lg:object-bottom"
+                alt="The space needle"
+                src="/images/needle.svg"
+              />
+            </div>
           </Block>
           <Block
             animationDelay={0.4}
             linkHref="https://assembleinc.com"
             linkText="Assembleinc.com"
-            className="relative col-span-8 row-span-2 flex h-full w-full flex-col gap-4 bg-[#290C54] text-white md:justify-center lg:col-span-2 lg:row-[span_6/span_6]"
+            className="relative col-span-8 row-span-2 flex h-full w-full flex-col gap-4 bg-pink-200 text-black md:justify-center lg:col-span-2 lg:row-[span_6/span_6]"
           >
             <h2 className="mt-4 md:text-xl lg:-mt-24">
               {" "}
@@ -99,7 +82,7 @@ const HomePage: NextPage = () => {
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 240 240"
-              className="absolute bottom-0 right-0 h-12 w-12 sm:bottom-2 sm:right-2 lg:bottom-8 lg:h-44 lg:w-44"
+              className="absolute bottom-2 right-2 h-12 w-12 sm:bottom-2 sm:right-2 lg:bottom-8 lg:h-44 lg:w-44"
               fill="white"
             >
               <defs></defs>
@@ -121,12 +104,12 @@ const HomePage: NextPage = () => {
 
           <Block
             animationDelay={0.5}
-            className="relative col-span-8 row-span-3 flex items-center justify-center bg-yellow-300 lg:col-span-2 lg:row-span-4"
+            className="relative col-span-8 row-span-3 flex items-center justify-center bg-yellow-200 lg:col-span-2 lg:row-span-3"
           >
             <h2>
               <FlipText
                 text="Design Engineer"
-                className="mt-1 text-5xl font-bold md:text-end md:text-4xl xl:text-5xl"
+                className="mt-1 font-serif text-5xl font-bold md:text-end md:text-4xl"
               />{" "}
             </h2>
           </Block>
@@ -155,7 +138,7 @@ const HomePage: NextPage = () => {
             <CodeBackground />
             <h2 className="text-2xl text-white xl:text-3xl">
               {" "}
-              @EthanGrebmeier on Github
+              <span className="font-serif">@EthanGrebmeier</span>
             </h2>
             <div className=" absolute bottom-0 right-2">
               <svg
@@ -198,6 +181,13 @@ const HomePage: NextPage = () => {
           </Block>
 
           <Block
+            animationDelay={1.1}
+            className={`col-span-8 row-span-3 flex items-center justify-center bg-white lg:col-span-2 lg:row-span-3`}
+          >
+            {" "}
+            <GetInTouch />
+          </Block>
+          <Block
             animationDelay={1.2}
             className="group col-span-8 row-span-1 flex items-center bg-orange-300 lg:col-span-2 lg:row-span-1"
           >
@@ -214,21 +204,6 @@ const HomePage: NextPage = () => {
                 </div>
               </span>
             </Link>
-          </Block>
-          <Block
-            animationDelay={1.1}
-            className={`col-span-8 row-span-3 flex items-center justify-center bg-white lg:col-span-2 lg:row-span-2`}
-          >
-            {" "}
-            <GetInTouch />
-          </Block>
-          <Block
-            animationDelay={1.1}
-            className={`col-span-8 row-span-1 flex items-center justify-center bg-red-400 lg:col-span-2 lg:row-span-1`}
-          >
-            <div className="flex w-full justify-center gap-4">
-              <p className="font-serif text-2xl">make it fun</p>
-            </div>
           </Block>
         </div>
         <ResetTiles />

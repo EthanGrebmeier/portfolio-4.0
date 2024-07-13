@@ -33,10 +33,10 @@ const Rain = () => {
               y: -80,
             },
           }}
-          className="absolute top-2 -left-10 z-10 flex "
+          className="absolute -left-10 top-2 z-10 flex "
         >
           <div className="relative isolate">
-            <div className="absolute  h-12 w-24 rounded-r-full rounded-l-full border-2  border-black  bg-gray-300" />
+            <div className="absolute  h-12 w-24 rounded-l-full rounded-r-full border-2  border-black  bg-gray-300" />
             <div className="absolute -top-[14px] left-4  h-12 w-12 rounded-full border-2 border-black border-b-transparent bg-gray-300" />
           </div>
         </motion.div>
@@ -65,7 +65,7 @@ const Rain = () => {
               y: -80,
             },
           }}
-          className="absolute top-1 right-32 z-10  flex"
+          className="absolute right-32 top-1 z-10  flex"
         >
           <div className="relative isolate">
             <div className="absolute  h-6 w-12 rounded-l-xl rounded-r-xl border-2  border-black  bg-gray-300" />
@@ -82,10 +82,10 @@ const Rain = () => {
               y: -80,
             },
           }}
-          className="absolute top-0 right-8 z-10 flex "
+          className="absolute right-8 top-0 z-10 flex "
         >
           <div className="relative isolate">
-            <div className="absolute  h-12 w-24 rounded-r-full rounded-l-full border-2  border-black  bg-gray-300" />
+            <div className="absolute  h-12 w-24 rounded-l-full rounded-r-full border-2  border-black  bg-gray-300" />
             <div className="absolute -top-[14px] left-4  h-12 w-12 rounded-full border-2 border-black border-b-transparent bg-gray-300" />
           </div>
         </motion.div>

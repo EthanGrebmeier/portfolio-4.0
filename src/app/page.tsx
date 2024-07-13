@@ -13,7 +13,7 @@ const font = Plus_Jakarta_Sans({
 
 export default async function Page() {
   return (
-    <div className={`${font.className} bg-blue-100`}>
+    <div className={`${font.className} bg-background`}>
       <HomePage />
     </div>
   );

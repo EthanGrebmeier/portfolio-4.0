@@ -23,7 +23,7 @@ const ImageText = ({
     >
       <div
         className={cn(
-          "top-4 mx-auto w-full max-w-[340px] overflow-hidden rounded-xl border-black md:sticky md:aspect-[6/4] md:max-w-none",
+          "top-4 mx-auto w-full max-w-[340px] overflow-hidden rounded-xl border-black md:sticky md:max-w-none",
           isFlipped && "md:order-2",
           withBorder && "border",
         )}

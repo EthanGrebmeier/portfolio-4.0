@@ -1,18 +1,28 @@
 import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 
 import "../styles/globals.css";
-
-const HeadingFont = EB_Garamond({
-  weight: ["400", "600"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-heading",
-});
 
 const BodyFont = Plus_Jakarta_Sans({
   weight: ["400", "600"],
   subsets: ["latin"],
   display: "swap",
+});
+
+const junicode = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Junicode.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Junicode-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-serif",
 });
 
 export default function RootLayout({
@@ -24,7 +34,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${BodyFont.className} `}>{children}</body>
+      <body className={`${BodyFont.className} ${junicode.variable} `}>
+        {children}
+      </body>
     </html>
   );
 }

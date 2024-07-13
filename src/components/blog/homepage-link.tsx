@@ -29,19 +29,19 @@ const HomepageLink = () => {
     },
     {
       src: "/images/fillaneed/Balance.svg",
-      width: 500,
-      height: 408,
+      width: 270,
+      height: 220,
       alt: "a balance scale",
     },
   ];
 
   useEffect(() => {
-    const interval = setTimeout(() => {
+    const timeout = setTimeout(() => {
       setCurrentImageIndex(
         currentImageIndex + 1 < images.length ? currentImageIndex + 1 : 0,
       );
     }, 3000);
-    return () => clearInterval(interval);
+    return () => clearTimeout(timeout);
   }, [currentImageIndex]);
 
   const currentImage = images[currentImageIndex];
@@ -49,7 +49,7 @@ const HomepageLink = () => {
   return (
     <Link
       href="/blog/fillaneed"
-      className="group flex h-full flex-col justify-between hover:cursor-pointer"
+      className="group flex h-full flex-col justify-between hover:cursor-pointer "
     >
       <div className="flex items-center justify-between">
         <div>
@@ -65,7 +65,8 @@ const HomepageLink = () => {
           src={currentImage.src}
           width={currentImage.width}
           height={currentImage.height}
-          alt="a sand scraper digging up data"
+          alt={currentImage.alt}
+          className="mx-auto"
         />
       )}
     </Link>

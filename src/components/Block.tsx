@@ -10,6 +10,7 @@ import {
 import useGridAnimation from "./context/GridAnimationContext";
 import BubbleLink from "./BlockLink";
 import useScreenSize from "./hooks/useScreenSize";
+import { cn } from "~/helpers/cn";
 
 interface BlockProps {
   children?: ReactNode;
@@ -101,11 +102,12 @@ const Block = ({
 
   return (
     <motion.div
-      className={`${className ? className : "relative"}  isolate ${
-        height ? height : "h-full"
-      }  ${
-        width ? width : "w-full"
-      }  overflow-hidden rounded-xl border-2 border-black p-2 @container sm:py-4 md:px-4 md:py-2`}
+      className={cn(
+        `isolate ${height ? height : "h-full"}  ${
+          width ? width : "w-full"
+        }  relative overflow-hidden rounded-lg border-2 border-black p-2 @container sm:py-4 md:p-4`,
+        className,
+      )}
       style={{ ...style, zIndex: zIndex || gridZIndex }}
       variants={variants}
       initial="initial"

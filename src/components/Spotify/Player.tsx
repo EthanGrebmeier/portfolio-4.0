@@ -67,7 +67,7 @@ const Player = ({ initialSongData }: PlayerProps) => {
           }
           className="-mx-4 flex-col justify-start px-4"
         >
-          <h2 className="text-xl"> Listening To:</h2>
+          <h2 className="font-serif text-2xl"> Listening To:</h2>
           <span>
             <motion.p
               animate={controls}
@@ -77,14 +77,14 @@ const Player = ({ initialSongData }: PlayerProps) => {
                 duration: 8,
                 repeatDelay: 3,
               }}
-              className="w-max text-3xl"
+              className="w-max font-serif text-3xl"
               key={songData.name}
               ref={(textRef) => setTextWidth(textRef?.offsetWidth || 0)}
             >
               {" "}
               {songData.name} -{" "}
               {songData.artists?.map(
-                (artist, index) => (index !== 0 ? ", " : "") + artist.name
+                (artist, index) => (index !== 0 ? ", " : "") + artist.name,
               )}{" "}
             </motion.p>
             <p className="text-base">
@@ -119,13 +119,13 @@ const Player = ({ initialSongData }: PlayerProps) => {
             {songData.image ? (
               <Image
                 alt={`cover art for ${songData.name}`}
-                className="h-full w-full select-none rounded-full border-2 border-white"
+                className="h-full w-full select-none rounded-full border-2 border-black"
                 width={songData.image.width}
                 height={songData.image.height}
                 src={songData.image.url}
               />
             ) : (
-              <div className="h-full w-full select-none rounded-full border-2 border-white bg-green-500"></div>
+              <div className="h-full w-full select-none rounded-full border-2 border-black bg-green-500"></div>
             )}
           </motion.div>
         </motion.div>

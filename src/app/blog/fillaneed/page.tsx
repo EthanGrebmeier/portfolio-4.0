@@ -5,16 +5,19 @@ import {
   DoorClosed,
   DoorOpen,
   ExternalLink,
+  Gift,
   Hammer,
   Home,
   KeyRound,
   Scroll,
+  Sparkles,
   WandSparkles,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Badge from "~/components/blog/badge";
+import Icon from "~/components/blog/fillaneed/icon";
 import ImageText from "~/components/blog/image-text";
 
 const BlogArticle = () => {
@@ -32,14 +35,6 @@ const BlogArticle = () => {
             <p className="absolute bottom-2 right-2 mb-0 mt-4 rounded-[4px] border border-black bg-background px-2 py-[2px] text-end">
               A fillaneed wishlist
             </p>
-            <Link
-              href="/"
-              className="group absolute right-2 top-2 flex items-center gap-2  rounded-md border border-black bg-background p-1"
-            >
-              <DoorClosed size={20} className="group-hover:hidden" />{" "}
-              <DoorOpen size={20} className="hidden group-hover:inline" />{" "}
-              <span>Home</span>
-            </Link>
           </div>
           <div className="prose mx-auto w-full leading-snug text-black prose-h1:mb-0 prose-p:mb-0 prose-p:mt-2">
             <div className="mb-4 grid grid-cols-1  font-sans ">
@@ -213,7 +208,7 @@ const BlogArticle = () => {
                   <p>
                     Instead, I decided to keep it real simple and write a simple
                     html scraper that was smart enough to look for commonly used
-                    metadata and JSONLD. This in conjunction with some
+                    metadata and JSON+LD. This in conjunction with some
                     hard-coded scrapers for more popular sites like Amazon,
                     Target, and Walmart proved to be a powerful solution.
                   </p>
@@ -235,11 +230,11 @@ const BlogArticle = () => {
           />
           <ImageText
             image={
-              <div className="flex h-full w-full items-start justify-center">
+              <div className="flex h-full w-full items-center justify-center">
                 <Image
                   src="/images/fillaneed/Balance.svg"
-                  width={500}
-                  height={408}
+                  width={440}
+                  height={359}
                   alt="a balance scale"
                 />
               </div>
@@ -303,8 +298,18 @@ const BlogArticle = () => {
                     sticking to a mostly light theme with splashes of color.
                     Instead of blocking out my sections with bright backgrounds,
                     I opted to save the color for icons, flourishes and badges.
-                    (Show some badges here)
                   </p>
+                  <div className="flex flex-wrap gap-2 text-black">
+                    <Icon className="bg-green-400">
+                      <Scroll size={20} />
+                    </Icon>
+                    <Icon className="bg-purple-400">
+                      <Sparkles size={20} />
+                    </Icon>
+                    <Icon className="bg-blue-400">
+                      <Gift size={20} />
+                    </Icon>
+                  </div>
                   <p className="italic">
                     Readable applications do not need to be boring applications.
                     Color and playfulness can seep through the cracks to bring
@@ -335,24 +340,31 @@ const BlogArticle = () => {
                   <p>
                     In the past, I used MongoDB for each of my side projects.
                     Fillaneed was my first time planning out a Postgres
-                    database. I wanted to take advantage of Drizzle ORM for its
-                    one-stop-shop solution to building out your schema and types
-                    in one go.
+                    database. I wanted to take advantage of{" "}
+                    <Link href="https://orm.drizzle.team/"> Drizzle ORM </Link>{" "}
+                    for its one-stop-shop solution to building out your schema
+                    and types in one go.
                   </p>
                   <p>
                     I went ahead and wrote out my schema with Drizzle's MySQL
-                    integration and pushed it up to Planetscale. Unfortunately,
-                    when I was about 80% through with the project, Planetscale
-                    announced that they were going to be shuttering their free
-                    tier.
+                    integration and pushed it up to{" "}
+                    <Link href="https://planetscale.com/">Planetscale</Link>.
+                    Unfortunately, when I was about 80% through with the
+                    project,{" "}
+                    <Link href="https://planetscale.com/blog/planetscale-forever">
+                      {" "}
+                      Planetscale announced that they were going to be
+                      shuttering their free tier.
+                    </Link>
                   </p>
                   <p>
                     After not being able to find a comparable MySQL host, I
                     decided to bite down and rewrite my schema in Postgres in
-                    preparation to switch over to Neon for hosting. Luckily the
-                    combination of Planetscale's export functionality, Drizzle's
-                    simple syntax, and neons import functionality made the
-                    transfer trivial.
+                    preparation to switch over to{" "}
+                    <Link href="https://neon.tech/"> Neon</Link> for hosting.
+                    Luckily the combination of Planetscale's export
+                    functionality, Drizzle's simple syntax, and neons import
+                    functionality made the transfer trivial.
                   </p>
                   <p className="italic">
                     Choosing tools with escape hatches is a great way to save
