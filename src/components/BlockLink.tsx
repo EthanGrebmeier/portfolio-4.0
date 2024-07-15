@@ -32,16 +32,11 @@ const BubbleLink = ({
           className={`group flex w-fit items-center gap-2 overflow-hidden rounded-l-full rounded-r-full border border-black bg-white px-2 py-1 text-black `}
         >
           {(isHover === "internal" ? isInternalHover : isHover) ? (
-            <motion.span className="relative" layout ref={textRef}>
+            <motion.span className="relative" ref={textRef}>
               {text}
-              <motion.span
-                className="absolute bottom-1 left-0 h-[1px] w-full bg-black"
-                layout
-                ref={textRef}
-              ></motion.span>
             </motion.span>
           ) : null}
-          {icon}
+          <motion.div layout>{icon}</motion.div>
         </motion.div>
       </LayoutGroup>
     </Link>

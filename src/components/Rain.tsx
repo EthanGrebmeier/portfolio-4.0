@@ -1,26 +1,26 @@
 "use client";
 import { motion, type Variants } from "framer-motion";
+import { memo } from "react";
 
-const Rain = () => {
-  const variants: Variants = {
-    hover: (custom) => ({
-      y: 800,
-      x: custom,
-      opacity: [0, 0.8, 0.8, 0.8, 0.2, 0],
-      transition: {
-        delay: Math.floor(Math.random() * 5) + 0.5,
-        repeatDelay: Math.floor(Math.random() * 3) + 3,
-        duration: Math.floor(Math.random() * 4) + 3,
-        repeat: Infinity,
-      },
-    }),
-    initial: {
-      x: 0,
-      y: -30,
-      opacity: 0,
+const variants: Variants = {
+  hover: (custom) => ({
+    y: 800,
+    x: custom,
+    opacity: [0, 0.8, 0.8, 0.8, 0.2, 0],
+    transition: {
+      delay: Math.floor(Math.random() * 5) + 0.5,
+      repeatDelay: Math.floor(Math.random() * 3) + 3,
+      duration: Math.floor(Math.random() * 4) + 3,
+      repeat: Infinity,
     },
-  };
-
+  }),
+  initial: {
+    x: 0,
+    y: -30,
+    opacity: 0,
+  },
+};
+const Rain = () => {
   return (
     <div className="absolute -top-1 left-0 flex h-full w-full select-none items-end justify-center gap-2 p-4">
       <div className="relative h-full w-full ">
@@ -110,4 +110,4 @@ const Rain = () => {
   );
 };
 
-export default Rain;
+export default memo(Rain);
