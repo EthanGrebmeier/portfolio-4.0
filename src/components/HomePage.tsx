@@ -35,7 +35,7 @@ const HomePage: NextPage = () => {
               <div className="relative aspect-square w-16 md:w-24">
                 <Image fill alt="My doodled face" src="/images/Smile2.svg" />
               </div>
-              <h1 className="font-serif text-6xl font-medium">
+              <h1 className="font-serif text-5xl font-medium sm:text-6xl">
                 Ethan <br /> Grebmeier
               </h1>
             </div>
