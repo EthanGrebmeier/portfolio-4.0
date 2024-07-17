@@ -29,7 +29,7 @@ const BlogArticle = () => {
             <Image
               className="object-cover"
               fill
-              src="/images/fillaneed/apartment.svg"
+              src="/images/fillaneed/apartment.png"
               alt="a fillaneed wishlist"
             />
             <p className="absolute bottom-2 right-2 mb-0 mt-4 rounded-[4px] border border-black bg-background px-2 py-[2px] text-end">
@@ -110,7 +110,7 @@ const BlogArticle = () => {
                   <Image
                     className="object-cover"
                     fill
-                    src="/images/fillaneed/secret.svg"
+                    src="/images/fillaneed/secret.png"
                     alt="fillaneed keep it a secret mode"
                   />
                 </div>
