@@ -143,7 +143,7 @@ const GameBoard = ({
 
       <div
         ref={boardRef}
-        className="relative mx-auto flex h-full w-full select-none flex-col overflow-hidden rounded-md border-2 border-black"
+        className="relative mx-auto flex w-full select-none flex-col overflow-hidden rounded-md border-2 border-black"
         data-vaul-no-drag
       >
         {isGameOver && (
