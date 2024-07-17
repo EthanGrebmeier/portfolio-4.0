@@ -51,12 +51,12 @@ const HomepageLink = () => {
       href="/blog/fillaneed"
       className="group flex h-full flex-col justify-between hover:cursor-pointer "
     >
-      <div className="flex items-center justify-between">
+      <div className="flex  justify-between">
         <div>
           <h2 className="-mb-2 font-serif text-2xl">Fillaneed</h2>
           <p className="text-sm group-hover:underline">Read the case study</p>
         </div>
-        <div className="h-fit w-fit rounded-lg border-2 border-black bg-green-300 p-2">
+        <div className="h-fit w-fit rounded-lg border-2 border-black bg-green-300 p-1">
           <Scroll size={20} />
         </div>
       </div>

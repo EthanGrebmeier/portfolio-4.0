@@ -4,19 +4,20 @@ import { memo } from "react";
 
 const variants: Variants = {
   hover: (custom) => ({
-    y: 800,
+    y: 600,
     x: custom,
-    opacity: [0, 0.8, 0.8, 0.8, 0.2, 0],
+    opacity: [0, 0.4, 0.6, 0.6, 0.4, 0],
     transition: {
-      delay: Math.floor(Math.random() * 5) + 0.5,
-      repeatDelay: Math.floor(Math.random() * 3) + 3,
-      duration: Math.floor(Math.random() * 4) + 3,
+      delay: Math.random() * 3,
+      repeatDelay: Math.random() * 3,
+      duration: 2,
       repeat: Infinity,
+      ease: "circIn",
     },
   }),
   initial: {
     x: 0,
-    y: -30,
+    y: 0,
     opacity: 0,
   },
 };
@@ -90,17 +91,17 @@ const Rain = () => {
           </div>
         </motion.div>
 
-        {Array.from(new Array(60)).map((id, index) => {
-          const offset = Math.floor(Math.random() * 100);
+        {Array.from(new Array(120)).map((id, index) => {
+          const offset = Math.random() * 120 - 10;
           return (
             <motion.div
               key={index}
               custom={id}
               variants={variants}
-              className="absolute top-0 h-[6px] w-[2px] rounded-b bg-blue-500 opacity-100"
+              className="absolute top-0 h-[6px] w-[2px] rounded-full bg-blue-500"
               style={{
                 left: offset + "%",
-                transform: `translateX(-${offset}%)`,
+                // top: `${offset / 80 + index / 25}%`,
               }}
             ></motion.div>
           );

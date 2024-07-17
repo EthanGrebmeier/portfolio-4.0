@@ -105,7 +105,7 @@ const Block = ({
       className={cn(
         `isolate ${height ? height : "h-full"}  ${
           width ? width : "w-full"
-        }  relative overflow-hidden rounded-lg border-2 border-black p-2 @container sm:py-4 md:p-4`,
+        }  relative overflow-hidden rounded-2xl border-2 border-black p-2 @container sm:py-4 md:p-4`,
         className,
       )}
       style={{ ...style, zIndex: zIndex || gridZIndex }}

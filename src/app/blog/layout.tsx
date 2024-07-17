@@ -17,7 +17,7 @@ export default function BlogLayout({
             width={60}
             height={60}
             alt="My doodled face"
-            src="/images/Smile.svg"
+            src="/images/Smile2.svg"
           />
           <p className="font-serif text-4xl group-hover:underline">
             {" "}

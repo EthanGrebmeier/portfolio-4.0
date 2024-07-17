@@ -52,15 +52,15 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={0.3}
-            className="col-span-4 row-span-2 flex items-center justify-center overflow-hidden bg-red-500 p-0 pt-2 sm:p-0 sm:pt-2 md:p-0 lg:col-span-1 lg:row-[span_6/span_6]"
+            className="col-span-4 row-span-2 flex items-center justify-center overflow-hidden bg-gray-200 p-0 pt-2 sm:p-0 sm:pt-2 md:p-0 lg:col-span-1 lg:row-[span_6/span_6]"
           >
             <Rain />
-            <div className="relative h-full w-[60%] md:w-full">
+            <div className="relative h-full w-[60%] md:mt-24 md:w-full">
               <Image
                 fill
-                className="pointer-events-none select-none object-cover object-top md:object-none lg:object-bottom"
+                className="pointer-events-none select-none object-cover object-top md:object-none lg:object-top"
                 alt="The space needle"
-                src="/images/needle.svg"
+                src="/images/Needle2.svg"
               />
             </div>
           </Block>
@@ -118,7 +118,7 @@ const HomePage: NextPage = () => {
 
           <Block
             animationDelay={0.6}
-            className="isolate col-span-8 row-span-5 bg-white lg:col-span-3 lg:row-span-3"
+            className="isolate col-span-8 row-span-5 bg-orange-100 lg:col-span-3 lg:row-span-3"
           >
             <div className="absolute bottom-0 right-8 z-[-1]">
               <HandWave />
@@ -192,7 +192,7 @@ const HomePage: NextPage = () => {
 
           <Block
             animationDelay={1.1}
-            className={`col-span-8 row-span-3 flex items-center justify-center bg-white lg:col-span-2 lg:row-span-3`}
+            className={`col-span-8 row-span-3 flex items-center justify-center bg-red-500 lg:col-span-2 lg:row-span-3`}
           >
             {" "}
             <GetInTouch />
@@ -209,8 +209,8 @@ const HomePage: NextPage = () => {
               <span className="flex w-full items-center justify-between group-hover:underline">
                 {" "}
                 LinkedIn{" "}
-                <div className="rounded-lg border-2 border-black bg-yellow-300 p-2">
-                  <BriefcaseBusiness size={20} />
+                <div className="rounded-lg border-2 border-black bg-yellow-300 p-1">
+                  <BriefcaseBusiness fill="white" size={20} />
                 </div>
               </span>
             </Link>
