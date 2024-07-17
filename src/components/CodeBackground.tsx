@@ -8,6 +8,7 @@ const matrixArray =
   );
 
 const CodeBackground = () => {
+  const [isMounted, setIsMounted] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -18,10 +19,18 @@ const CodeBackground = () => {
     return () => clearTimeout(timeout);
   }, [currentIndex]);
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <div
       aria-hidden
-      className="absolute inset-0 z-0 opacity-0 transition-opacity duration-300 hover:opacity-100 "
+      className="notranslate absolute inset-0 z-0 opacity-0 transition-opacity duration-300 hover:opacity-100"
     >
       <div className="relative isolate h-full w-full">
         <p className="absolute -left-2 -right-2 bottom-0 top-0 z-0 select-none tabular-nums">
@@ -32,7 +41,7 @@ const CodeBackground = () => {
             const character = matrixArray[characterIndex];
             return (
               <motion.span
-                key={id}
+                key={ind}
                 className=" size-3 text-2xl text-green-500 opacity-100"
               >
                 {character}
