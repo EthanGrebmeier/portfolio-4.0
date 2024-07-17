@@ -45,7 +45,7 @@ const ChessBlock = ({ gameFEN, lastMoveTime, gameStats }: ChessBlockProps) => {
                 .map((_, index2) => (
                   <div
                     className={cn(
-                      "aspect-square h-full w-full border border-black",
+                      "aspect-square h-full w-full outline outline-2 outline-black",
                       (index2 + index) % 2 === 0
                         ? "bg-green-400"
                         : "bg-orange-200",

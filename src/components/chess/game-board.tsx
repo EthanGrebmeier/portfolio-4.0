@@ -143,7 +143,7 @@ const GameBoard = ({
 
       <div
         ref={boardRef}
-        className="relative mx-auto flex w-full select-none flex-col overflow-hidden rounded-md border border-black"
+        className="relative mx-auto flex h-full w-full select-none flex-col overflow-hidden rounded-md border-2 border-black"
         data-vaul-no-drag
       >
         {isGameOver && (
@@ -193,7 +193,7 @@ const GameBoard = ({
                 <div
                   key={fileIndex}
                   className={cn(
-                    "relative flex aspect-square w-full items-center justify-center border border-black",
+                    "relative flex aspect-square w-full items-center justify-center border-black outline outline-2 outline-black",
                     (rankIndex + fileIndex) % 2
                       ? " bg-green-400"
                       : " bg-orange-200",
