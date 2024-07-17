@@ -1,4 +1,5 @@
 // @ts-check
+import { Chess } from "chess.js";
 import { z } from "zod";
 
 /**
@@ -14,6 +15,8 @@ export const serverSchema = z.object({
   EMAIL_ADDRESS: z.string(),
   EMAIL_TOKEN: z.string(),
   REDIS_URL: z.string(),
+  MONGO_URL: z.string(),
+  CHESS_IS_OWNER: z.string(),
 });
 
 /**
@@ -23,6 +26,7 @@ export const serverSchema = z.object({
  */
 export const clientSchema = z.object({
   // NEXT_PUBLIC_CLIENTVAR: z.string(),
+  NEXT_PUBLIC_CHESS_CLIENT_IS_OWNER: z.string(),
 });
 
 /**
@@ -33,4 +37,6 @@ export const clientSchema = z.object({
  */
 export const clientEnv = {
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
+  NEXT_PUBLIC_CHESS_CLIENT_IS_OWNER:
+    process.env.NEXT_PUBLIC_CHESS_CLIENT_IS_OWNER,
 };

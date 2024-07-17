@@ -31,7 +31,6 @@ const VisitorCounter = () => {
   );
 
   const timeout = Math.min(200, 1200 / count);
-  console.log(timeout);
   useEffect(() => {
     if (isInView) {
       tickerTimeout.current = setTimeout(() => {

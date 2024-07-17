@@ -32,7 +32,6 @@ const Player = ({ initialSongData }: PlayerProps) => {
       const songDataResponseBody = await songData.json();
 
       if (songDataResponseBody) {
-        console.log(songDataResponseBody);
         setSongData(songDataResponseBody);
       }
     }, 1000 * 60);
@@ -130,7 +129,7 @@ const Player = ({ initialSongData }: PlayerProps) => {
           </motion.div>
         </motion.div>
       </AnimatePresence>
-      <div className="absolute right-0 z-[1] hidden h-full w-44 bg-green-300 sm:flex  lg:hidden"></div>
+      <div className="absolute right-0 z-[1] hidden h-full w-44 bg-green-400 sm:flex  lg:hidden"></div>
     </motion.div>
   );
 };

@@ -19,7 +19,10 @@ const CodeBackground = () => {
   }, [currentIndex]);
 
   return (
-    <div className="absolute inset-0 z-0 opacity-0 transition-opacity duration-300 hover:opacity-100 ">
+    <div
+      aria-hidden
+      className="absolute inset-0 z-0 opacity-0 transition-opacity duration-300 hover:opacity-100 "
+    >
       <div className="relative isolate h-full w-full">
         <p className="absolute -left-2 -right-2 bottom-0 top-0 z-0 select-none tabular-nums">
           {Array.from(new Array(364)).map((id, ind) => {

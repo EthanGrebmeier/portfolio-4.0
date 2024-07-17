@@ -14,8 +14,8 @@ export default function BlogLayout({
       <div className="group mx-auto flex max-w-screen-xl px-4 pt-6">
         <Link href="/" className="flex items-center gap-4">
           <Image
-            width={40}
-            height={40}
+            width={60}
+            height={60}
             alt="My doodled face"
             src="/images/Smile.svg"
           />

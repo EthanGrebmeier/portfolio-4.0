@@ -15,6 +15,8 @@ import VisitorCounter from "./VisitorCounter";
 import { Suspense } from "react";
 import HomepageLink from "./blog/homepage-link";
 import { BriefcaseBusiness, Locate, LocateFixed, MapPin } from "lucide-react";
+import ChessBlock from "./chess/chess-block";
+import ChessServerWrapper from "./chess/server-wrapper";
 
 export const metadata = {
   title: "Ethan Grebmeier",
@@ -40,7 +42,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={0.2}
-            className="col-span-4 row-span-2 flex items-center justify-center gap-2 bg-blue-300 sm:gap-4 lg:col-span-2 lg:row-span-3 "
+            className="col-span-4 row-span-2 flex items-center justify-center gap-2 bg-blue-400 sm:gap-4 lg:col-span-2 lg:row-span-3 "
           >
             <MapPin size={50} />
             <h2 className="xs:text-2xl w-min font-serif text-xl leading-tight lg:text-3xl">
@@ -50,7 +52,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={0.3}
-            className="col-span-4 row-span-2 flex items-center justify-center overflow-hidden bg-red-400 p-0 pt-2 sm:p-0 sm:pt-2 md:p-0 lg:col-span-1 lg:row-[span_6/span_6]"
+            className="col-span-4 row-span-2 flex items-center justify-center overflow-hidden bg-red-500 p-0 pt-2 sm:p-0 sm:pt-2 md:p-0 lg:col-span-1 lg:row-[span_6/span_6]"
           >
             <Rain />
             <div className="relative h-full w-[60%] md:w-full">
@@ -129,34 +131,40 @@ const HomePage: NextPage = () => {
               creating engaging, interactive experiences on the web.
             </p>
           </Block>
-          <Block
-            animationDelay={0.7}
-            className="relative col-span-8 row-span-3 bg-black lg:col-span-2 lg:row-span-4"
-            linkHref="https://github.com/EthanGrebmeier"
-            linkText="View profile"
-          >
-            <CodeBackground />
-            <div className="z-10">
-              <h2 className=" text-2xl text-white xl:text-3xl">
-                @EthanGrebmeier
-              </h2>
 
-              <div className=" absolute bottom-0 right-2">
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  className="h-24 w-24 fill-white"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0 1 12 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48 3.97-1.32 6.833-5.054 6.833-9.458C22 6.463 17.522 2 12 2Z"
-                  ></path>
-                </svg>
+          <div className="col-span-8 row-span-4 grid h-full grid-cols-1 grid-rows-2 gap-4 lg:col-span-2 lg:row-span-4">
+            <Block className="row-span-1">
+              <ChessServerWrapper />
+            </Block>
+
+            <Block
+              animationDelay={0.7}
+              className="relative row-span-1 bg-black "
+              linkHref="https://github.com/EthanGrebmeier"
+              linkText="View profile"
+            >
+              <CodeBackground />
+              <div className="z-10">
+                <h2 className=" text-2xl text-white xl:text-3xl">
+                  @EthanGrebmeier
+                </h2>
+
+                <div className=" absolute bottom-0 right-2">
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    className="h-24 w-24 fill-white"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.607 9.607 0 0 1 12 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48 3.97-1.32 6.833-5.054 6.833-9.458C22 6.463 17.522 2 12 2Z"
+                    ></path>
+                  </svg>
+                </div>
               </div>
-            </div>
-          </Block>
-
+            </Block>
+          </div>
           <Block
             animationDelay={0.9}
             className="col-span-8 row-span-5 items-center bg-green-400 lg:col-span-2 lg:row-span-4"
