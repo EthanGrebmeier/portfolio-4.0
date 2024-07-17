@@ -135,7 +135,10 @@ const GameBoard = ({
             <p>
               {" "}
               Last Move{" "}
-              {formatDate(new Date(result.data?.fen || lastMoveTime), "Pp")}
+              {formatDate(
+                new Date(result.data?.timestamp || lastMoveTime),
+                "Pp",
+              )}
             </p>
           )}
         </div>
