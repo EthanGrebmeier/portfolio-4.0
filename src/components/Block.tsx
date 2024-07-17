@@ -122,12 +122,6 @@ const Block = ({
       onFocus={() => setIsHover(true)}
       onBlur={() => setIsHover(false)}
       drag={screenSize ? ["lg", "xl", "2xl"].includes(screenSize) : false}
-      dragConstraints={{
-        left: -40,
-        right: 40,
-        top: -40,
-        bottom: 40,
-      }}
       animate={animationControls}
       layout
     >

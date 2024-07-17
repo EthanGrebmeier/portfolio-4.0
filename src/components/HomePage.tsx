@@ -24,7 +24,7 @@ export const metadata = {
 
 const HomePage: NextPage = () => {
   return (
-    <main className="relative flex h-fit flex-col items-center justify-center overflow-hidden md:min-h-screen">
+    <main className="relative flex h-fit flex-col items-center justify-center md:min-h-screen">
       <ContextWrapper>
         <div className="container relative my-4 grid h-fit w-full grid-cols-8 grid-rows-[repeat(31,60px)] items-center justify-center gap-2 px-4 sm:gap-4 md:my-12 lg:grid-rows-[repeat(10,70px)]">
           <Block
