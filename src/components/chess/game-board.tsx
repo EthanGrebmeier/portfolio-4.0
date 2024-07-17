@@ -38,7 +38,7 @@ const GameBoard = ({
       }
     },
   });
-  const { execute: executeGetGame } = useAction(getGameAction, {
+  const { execute: executeGetGame, result } = useAction(getGameAction, {
     onSuccess: ({ data }) => {
       if (data?.fen) {
         setChess(new Chess(data.fen));
@@ -132,7 +132,11 @@ const GameBoard = ({
           )}
           <p> Move {chess.moveNumber()}</p>
           {lastMoveTime && (
-            <p> Last Move {formatDate(new Date(lastMoveTime), "Pp")}</p>
+            <p>
+              {" "}
+              Last Move{" "}
+              {formatDate(new Date(result.data?.fen || lastMoveTime), "Pp")}
+            </p>
           )}
         </div>
         <div className="text-end">
