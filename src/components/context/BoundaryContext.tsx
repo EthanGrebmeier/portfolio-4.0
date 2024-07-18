@@ -17,7 +17,7 @@ type BoundaryProviderProps = {
 };
 
 const BoundaryContext = createContext<BoundaryContextValue | undefined>(
-  undefined
+  undefined,
 );
 
 const BoundaryProvider = ({ children }: BoundaryProviderProps) => {
@@ -25,10 +25,7 @@ const BoundaryProvider = ({ children }: BoundaryProviderProps) => {
 
   return (
     <BoundaryContext.Provider value={{ boundaryRef: boundaryRef }}>
-      <div
-        className="flex h-full w-full justify-center overflow-hidden"
-        ref={boundaryRef}
-      >
+      <div className="flex h-full w-full justify-center " ref={boundaryRef}>
         {children}
       </div>
     </BoundaryContext.Provider>
