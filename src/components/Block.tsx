@@ -112,6 +112,7 @@ const Block = ({
       variants={variants}
       initial="initial"
       whileHover="hover"
+      whileTap="hover"
       whileDrag="drag"
       onDrag={() => {
         setGridState("dragged");

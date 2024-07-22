@@ -103,7 +103,7 @@ const Player = ({ initialSongData }: PlayerProps) => {
             type: "spring",
             duration: 1.3,
           }}
-          className="relative z-[10] aspect-square h-36 lg:mx-auto"
+          className="relative z-[10] mx-auto aspect-square h-36 md:mx-0 lg:mx-auto"
         >
           <Notes />
           <motion.div

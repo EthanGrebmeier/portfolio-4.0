@@ -26,10 +26,10 @@ const HomePage: NextPage = () => {
   return (
     <main className="relative flex h-fit flex-col items-center justify-center overflow-hidden md:min-h-screen">
       <ContextWrapper>
-        <div className="container relative my-4 grid h-fit w-full grid-cols-8 grid-rows-[repeat(31,60px)] items-center justify-center gap-2 px-4 sm:gap-4 md:my-12 lg:grid-rows-[repeat(10,70px)]">
+        <div className="container relative my-4 grid h-fit w-full grid-cols-8 grid-rows-[repeat(33,60px)] items-center justify-center gap-2 px-4 sm:gap-4 md:my-12 lg:grid-rows-[repeat(10,70px)]">
           <Block
             animationDelay={0.1}
-            className="relative col-span-8 row-span-3 bg-purple-300  md:grid-cols-2 lg:col-span-3 lg:row-span-3"
+            className="relative order-1 col-span-8 row-span-3  bg-purple-300 md:order-none md:grid-cols-2 lg:col-span-3 lg:row-span-3"
           >
             <div className=" flex h-full max-w-lg items-center justify-center gap-4 md:gap-8">
               <div className="relative aspect-square w-16 md:w-24">
@@ -42,7 +42,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={0.2}
-            className="col-span-4 row-span-2 flex items-center justify-center gap-2 bg-blue-400 sm:gap-4 lg:col-span-2 lg:row-span-3 "
+            className="order-2 col-span-4 row-span-2 flex items-center justify-center gap-2 bg-blue-400 sm:gap-4 md:order-none lg:col-span-2 lg:row-span-3"
           >
             <MapPin size={50} />
             <h2 className="xs:text-2xl w-min font-serif text-xl leading-tight lg:text-3xl">
@@ -52,7 +52,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={0.3}
-            className="col-span-4 row-span-2 flex items-center justify-center overflow-hidden bg-gray-200 p-0 pt-2 sm:p-0 sm:pt-2 md:p-0 lg:col-span-1 lg:row-[span_6/span_6]"
+            className="order-3 col-span-4 row-span-2 flex items-center justify-center overflow-hidden bg-gray-200 p-0 pt-2 sm:p-0 sm:pt-2 md:order-none md:p-0 lg:col-span-1 lg:row-[span_6/span_6]"
           >
             <Rain />
             <div className="relative h-full w-[60%] md:mt-24 md:w-full">
@@ -68,7 +68,7 @@ const HomePage: NextPage = () => {
             animationDelay={0.4}
             linkHref="https://assembleinc.com"
             linkText="Assembleinc.com"
-            className="relative col-span-8 row-span-2 flex h-full w-full flex-col gap-4 bg-pink-300 text-black md:justify-center lg:col-span-2 lg:row-[span_6/span_6]"
+            className="relative order-6 col-span-8 row-span-2 flex h-full w-full flex-col gap-4 bg-pink-300 text-black md:order-none md:justify-center lg:col-span-2 lg:row-[span_6/span_6]"
           >
             <h2 className="mt-4 md:text-xl lg:-mt-24">
               {" "}
@@ -106,7 +106,7 @@ const HomePage: NextPage = () => {
 
           <Block
             animationDelay={0.5}
-            className="relative col-span-8 row-span-3 flex items-center justify-center bg-yellow-300 lg:col-span-2 lg:row-span-3"
+            className="relative order-7 col-span-8 row-span-3 flex items-center justify-center bg-yellow-300 md:order-none lg:col-span-2 lg:row-span-3"
           >
             <h2>
               <FlipText
@@ -118,7 +118,7 @@ const HomePage: NextPage = () => {
 
           <Block
             animationDelay={0.6}
-            className="isolate col-span-8 row-span-5 bg-orange-100 lg:col-span-3 lg:row-span-3"
+            className="isolate order-5 col-span-8 row-span-5 bg-orange-100 md:order-none lg:col-span-3 lg:row-span-3"
           >
             <div className="absolute bottom-0 right-8 z-[-1]">
               <HandWave />
@@ -132,7 +132,7 @@ const HomePage: NextPage = () => {
             </p>
           </Block>
 
-          <div className="col-span-8 row-span-4 grid h-full grid-cols-1 grid-rows-2 gap-4 lg:col-span-2 lg:row-span-4">
+          <div className="order-8 col-span-8 row-span-4 grid h-full grid-cols-1 grid-rows-2 gap-4 md:order-none lg:col-span-2 lg:row-span-4">
             <Block className="row-span-1">
               <ChessServerWrapper />
             </Block>
@@ -167,7 +167,7 @@ const HomePage: NextPage = () => {
           </div>
           <Block
             animationDelay={0.9}
-            className="col-span-8 row-span-5 items-center bg-green-400 lg:col-span-2 lg:row-span-4"
+            className="order-9 col-span-8 row-span-5 items-center bg-green-400 md:order-none lg:col-span-2 lg:row-span-4"
           >
             <Suspense fallback={<div className="text-3xl"> Loading... </div>}>
               <Spotify />
@@ -185,21 +185,21 @@ const HomePage: NextPage = () => {
 
           <Block
             animationDelay={0.8}
-            className="col-span-8 row-span-4 bg-indigo-300 lg:col-span-2 lg:row-span-4"
+            className="order-6 col-span-8 row-span-6 bg-indigo-300 md:order-none  lg:col-span-2 lg:row-span-4 "
           >
             <HomepageLink />
           </Block>
 
           <Block
             animationDelay={1.1}
-            className={`col-span-8 row-span-3 flex items-center justify-center bg-red-500 lg:col-span-2 lg:row-span-3`}
+            className={`order-10 col-span-8 row-span-3 flex items-center justify-center bg-red-500 md:order-none lg:col-span-2 lg:row-span-3`}
           >
             {" "}
             <GetInTouch />
           </Block>
           <Block
             animationDelay={1.2}
-            className="group col-span-8 row-span-1 flex items-center bg-orange-400 lg:col-span-2 lg:row-span-1"
+            className="group order-11 col-span-8 row-span-1 flex items-center bg-orange-400 md:order-none lg:col-span-2 lg:row-span-1"
           >
             <Link
               className="w-full font-serif text-2xl font-medium"
