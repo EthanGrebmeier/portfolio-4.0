@@ -3,12 +3,14 @@ import { motion, type Variants } from "framer-motion";
 import { type ReactNode } from "react";
 
 import FlipText from "./FlipText";
+import { cn } from "~/lib/utils";
 
 interface TactileButtonProps {
   onClick?: () => void;
   children: string;
   icon?: ReactNode;
   className?: string;
+  buttonClassName?: string;
   disabled?: boolean;
 }
 
@@ -18,6 +20,7 @@ const TactileButton = ({
   icon,
   disabled,
   className = "bg-blue-500",
+  buttonClassName,
 }: TactileButtonProps) => {
   const buttonVariants: Variants = {
     initial: {
@@ -32,7 +35,7 @@ const TactileButton = ({
   };
   return (
     <button
-      className={`mb-2 w-fit rounded-full bg-black p-0`}
+      className={cn(`mb-2 w-fit rounded-full bg-black p-0`, buttonClassName)}
       onClick={onClick}
       disabled={disabled}
     >

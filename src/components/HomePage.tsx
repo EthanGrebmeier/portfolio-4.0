@@ -229,7 +229,6 @@ const HomePage: NextPage = () => {
           </Block>
         </div>
         <ResetTiles />
-        <ContactModal />
       </ContextWrapper>
     </main>
   );
