@@ -17,6 +17,7 @@ import HomepageLink from "./blog/homepage-link";
 import { BriefcaseBusiness, Locate, LocateFixed, MapPin } from "lucide-react";
 import ChessBlock from "./chess/chess-block";
 import ChessServerWrapper from "./chess/server-wrapper";
+import Bars from "./Bars/Bars";
 
 export const metadata = {
   title: "Ethan Grebmeier",
@@ -64,45 +65,55 @@ const HomePage: NextPage = () => {
               />
             </div>
           </Block>
-          <Block
-            animationDelay={0.4}
-            linkHref="https://assembleinc.com"
-            linkText="Assembleinc.com"
-            className="relative order-6 col-span-8 row-span-2 flex h-full w-full flex-col gap-4 bg-pink-300 text-black md:order-none md:justify-center lg:col-span-2 lg:row-[span_6/span_6]"
-          >
-            <h2 className="mt-4 md:text-xl lg:-mt-24">
-              {" "}
-              Currently building cutting edge storefronts at{" "}
-              <br className="hidden sm:block" />
-              <span className="ml-1 text-3xl font-bold uppercase md:ml-0">
-                {" "}
-                Asmbl
-              </span>
-            </h2>
-            <svg
-              id="Layer_1"
-              data-name="Layer 1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 240 240"
-              className="absolute bottom-2 right-2 h-12 w-12 sm:bottom-2 sm:right-2 lg:bottom-8 lg:h-44 lg:w-44"
-              fill="white"
+          <div className="order-6 col-span-8 row-span-3 grid h-full grid-cols-2 grid-rows-1 gap-4 md:order-none lg:col-span-2 lg:row-span-6 lg:grid-cols-1 lg:grid-rows-2 lg:gap-2">
+            <Block
+              animationDelay={0.4}
+              linkHref="https://assembleinc.com"
+              linkText="Assembleinc.com"
+              className="relative flex h-full w-full flex-col gap-4 bg-pink-300 text-black "
             >
-              <defs></defs>
-              <title>Assemble_Assets</title>
-              <polygon
-                className="cls-1"
-                points="28.84 36.67 28.84 204.88 59.22 204.88 59.22 196.34 38.26 196.34 38.26 45.2 59.22 45.2 59.22 36.67 28.84 36.67"
-              />
-              <polygon
-                className="cls-1"
-                points="180.78 36.67 180.78 45.2 201.74 45.2 201.74 196.34 180.78 196.34 180.78 204.88 211.16 204.88 211.16 36.67 180.78 36.67"
-              />
-              <path
-                className="cls-1"
-                d="M112.19,64.91,77,166.7H87.85l8.93-26.6h46.43l8.93,26.6H163L127.81,64.91ZM99.65,131.56l18.45-55h3.79l18.44,55Z"
-              />
-            </svg>
-          </Block>
+              <svg
+                id="Layer_1"
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 240 240"
+                className="absolute bottom-2 right-2 h-12 w-12 sm:bottom-2 sm:right-2 lg:bottom-8 lg:h-44 lg:w-44"
+                fill="white"
+              >
+                <defs></defs>
+                <title>Assemble_Assets</title>
+                <polygon
+                  className="cls-1"
+                  points="28.84 36.67 28.84 204.88 59.22 204.88 59.22 196.34 38.26 196.34 38.26 45.2 59.22 45.2 59.22 36.67 28.84 36.67"
+                />
+                <polygon
+                  className="cls-1"
+                  points="180.78 36.67 180.78 45.2 201.74 45.2 201.74 196.34 180.78 196.34 180.78 204.88 211.16 204.88 211.16 36.67 180.78 36.67"
+                />
+                <path
+                  className="cls-1"
+                  d="M112.19,64.91,77,166.7H87.85l8.93-26.6h46.43l8.93,26.6H163L127.81,64.91ZM99.65,131.56l18.45-55h3.79l18.44,55Z"
+                />
+              </svg>
+              <div className="absolute inset-2">
+                <h2 className="mt-4 md:text-xl ">
+                  {" "}
+                  Currently building cutting edge storefronts at{" "}
+                  <br className="hidden sm:block" />
+                  <span className="z-10 ml-1 text-3xl font-bold uppercase md:ml-0">
+                    {" "}
+                    Asmbl
+                  </span>
+                </h2>
+              </div>
+            </Block>
+            <Block
+              animationDelay={0.5}
+              className="relative flex h-full w-full items-center justify-center bg-background md:order-none lg:col-span-2 lg:row-span-3"
+            >
+              <Bars />
+            </Block>
+          </div>
 
           <Block
             animationDelay={0.5}
@@ -118,7 +129,7 @@ const HomePage: NextPage = () => {
 
           <Block
             animationDelay={0.6}
-            className="isolate order-5 col-span-8 row-span-5 bg-orange-100 md:order-none lg:col-span-3 lg:row-span-3"
+            className="isolate order-5 col-span-8 row-span-4 bg-orange-100 md:order-none lg:col-span-3 lg:row-span-3"
           >
             <div className="absolute bottom-0 right-8 z-[-1]">
               <HandWave />
@@ -126,8 +137,9 @@ const HomePage: NextPage = () => {
             <p className="z-[3] mb-4 font-serif text-3xl"> Hey there! </p>
             <p className="z-[3] text-lg">
               {" "}
-              Thanks for checking out my site! <br className="flex md:hidden" />{" "}
-              <br className="flex md:hidden" /> I&rsquo;m a Design Engineer
+              Thanks for checking out my site!{" "}
+              <br className="block md:hidden" />{" "}
+              <br className="block md:hidden" /> I&rsquo;m a Design Engineer
               creating engaging, interactive experiences on the web.
             </p>
           </Block>
