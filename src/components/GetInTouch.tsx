@@ -30,7 +30,7 @@ const GetInTouch = () => {
         <DrawerHeader className="border-b border-white">
           <DrawerTitle className="text-2xl font-bold">Get in touch</DrawerTitle>
         </DrawerHeader>
-        <div className="mx-auto flex flex-col px-4 text-black">
+        <div className="mx-auto flex max-h-[70svh] flex-col overflow-auto px-4 text-black">
           <ContactModal />
         </div>
       </DrawerContent>
