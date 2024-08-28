@@ -110,11 +110,10 @@
   right: 0;
   bottom: 0;
   background: conic-gradient(
-    from 0deg at 0% 100%,
-    transparent 40deg,
-    hsl(4 10% 70% / 30%) 47deg,
-    transparent 55deg
+    transparent 20deg,
+    hsl(4 10% 70% / 30%) 67deg,
+    transparent 95deg
   );
   transform-origin: center left;
-  transform: rotate(10deg);
+  /* transform: rotate(10deg); */
 }

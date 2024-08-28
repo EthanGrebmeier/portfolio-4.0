@@ -128,12 +128,15 @@ const Player = ({ initialSongData }: PlayerProps) => {
               ) : (
                 <div className="h-full w-full select-none rounded-full border-2 border-black bg-green-500"></div>
               )}
-              <div className="absolute bottom-1 left-1 right-1 top-1 z-10 rounded-full border border-gray-600"></div>
-              <div className="absolute bottom-2 left-2 right-2 top-2 z-10 rounded-full border border-gray-600"></div>
-              <div className="absolute bottom-3 left-3 right-3 top-3 z-10 rounded-full border border-gray-600"></div>
-              <div className="absolute bottom-4 left-4 right-4 top-4 z-10 rounded-full border border-gray-700"></div>
-              <div className="absolute bottom-5 left-5 right-5 top-5 z-10 rounded-full border border-gray-600"></div>
-              <div className="absolute bottom-6 left-6 right-6 top-6 z-10 rounded-full border border-gray-700"></div>
+              <div className="absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border border-black bg-green-500">
+                {" "}
+              </div>
+              <div className="absolute bottom-1 left-1 right-1 top-1 z-10 rounded-full border border-gray-600 "></div>
+              <div className="absolute bottom-2 left-2 right-2 top-2 z-10 rounded-full border border-gray-600 "></div>
+              <div className="absolute bottom-3 left-3 right-3 top-3 z-10 rounded-full border border-gray-600 "></div>
+              <div className="absolute bottom-4 left-4 right-4 top-4 z-10 rounded-full border border-gray-700 "></div>
+              <div className="absolute bottom-5 left-5 right-5 top-5 z-10 rounded-full border border-gray-600 "></div>
+              <div className="absolute bottom-6 left-6 right-6 top-6 z-10 rounded-full border border-gray-700 "></div>
             </motion.div>
             <div className="record-glow "></div>
           </div>
