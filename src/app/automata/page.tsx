@@ -4,10 +4,10 @@ export const metadata = {
 
 import dynamic from "next/dynamic";
 
-const Dither = dynamic(() => import("~/components/dither"), {
+const Automata = dynamic(() => import("~/components/automata"), {
   ssr: false,
 });
 
 export default async function Page() {
-  return <Dither />;
+  return <Automata />;
 }

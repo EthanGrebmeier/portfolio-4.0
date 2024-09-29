@@ -5,7 +5,7 @@ import p5 from "p5";
 
 const PIXELSIZE = 5;
 
-const Dither = () => {
+const Automata = () => {
   const [sketch, setSketch] = React.useState<p5>();
   const [rule, setRule] = React.useState(0);
   const binaryRule = React.useMemo(
@@ -85,25 +85,23 @@ const Dither = () => {
   }, []);
 
   return (
-    <div className="relative h-screen w-screen" ref={sketchRef}>
-      <div className="absolute right-4 top-4 flex gap-1 rounded-3xl border-2 border-black  bg-white px-4 py-2">
-        <div className="rounded-xl border-2 border-black bg-yellow-500 px-4 py-2 text-3xl text-black">
-          Rule:
-          <input
-            onChange={(e) => {
-              const value = parseInt(e.target.value);
-              if (value > 256 || value < 1) return setRule(rule);
-              setRule(value);
-            }}
-            value={rule}
-            min={1}
-            type="number"
-            className="w-24 bg-transparent text-center"
-          />
-        </div>
+    <div className="relative h-[100svh] w-screen" ref={sketchRef}>
+      <div className=" absolute right-4 top-4 rounded-xl border border-black bg-white px-2 py-1 font-sans text-xl text-black">
+        Rule:
+        <input
+          onChange={(e) => {
+            const value = parseInt(e.target.value);
+            if (value > 256 || value < 1) return setRule(rule);
+            setRule(value);
+          }}
+          value={rule}
+          min={1}
+          type="number"
+          className="w-24 bg-transparent text-center"
+        />
       </div>
     </div>
   );
 };
 
-export default Dither;
+export default Automata;
