@@ -167,7 +167,7 @@ const Dither = () => {
   return (
     <div>
       <div className="flex h-[100svh] flex-col items-center gap-4 overflow-hidden p-2 md:p-4">
-        <div className="z-10 flex-shrink-0 overflow-hidden rounded-xl border-2 border-black bg-white px-2 py-1 font-sans text-xl text-black">
+        <div className="z-10 w-full overflow-hidden rounded-xl border-2 border-black bg-white px-2 py-1 font-sans text-xl text-black">
           <input
             type="file"
             onChange={(e) => {
@@ -185,30 +185,35 @@ const Dither = () => {
             }}
           />
         </div>
-        <motion.div
-          initial={{
-            translateY: "100%",
-            opacity: 0,
-          }}
-          animate={{
-            translateY: 0,
-            opacity: 1,
-          }}
-          exit={{
-            translateY: "100%",
-            opacity: 0,
-          }}
-          transition={{
-            type: "spring",
-            bounce: 0.3,
-            duration: 0.3,
-            ease: "easeInOut",
-          }}
-          key={ditheredSource}
-          className="min-h-0 w-fit justify-center overflow-hidden rounded-3xl border-2 border-black"
-        >
-          <img src={ditheredSource} className="object-contain object-center" />
-        </motion.div>
+        {ditheredSource && (
+          <motion.div
+            initial={{
+              translateY: "100%",
+              opacity: 0,
+            }}
+            animate={{
+              translateY: 0,
+              opacity: 1,
+            }}
+            exit={{
+              translateY: "100%",
+              opacity: 0,
+            }}
+            transition={{
+              type: "spring",
+              bounce: 0.3,
+              duration: 0.3,
+              ease: "easeInOut",
+            }}
+            key={ditheredSource}
+            className="min-h-0 w-fit justify-center overflow-hidden rounded-3xl border-2 border-black"
+          >
+            <img
+              src={ditheredSource}
+              className="object-contain object-center"
+            />
+          </motion.div>
+        )}
       </div>
       <canvas ref={canvasRef} className="relative hidden"></canvas>
     </div>
