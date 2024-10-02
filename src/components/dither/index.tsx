@@ -2,6 +2,9 @@
 
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import PrintOutImage from "./print-out-image";
+import { cn } from "~/helpers/cn";
+import { Rubik } from "~/styles/fonts";
 
 type RGBA = {
   red: number;
@@ -166,10 +169,20 @@ const Dither = () => {
 
   return (
     <div>
-      <div className="flex h-[100svh] flex-col items-center gap-4 overflow-hidden p-2 md:p-4">
-        <div className="z-10 w-full overflow-hidden rounded-xl border-2 border-black bg-white px-2 py-1 font-sans text-xl text-black">
+      <div className="flex flex-col items-center gap-4 overflow-hidden p-2 md:p-4">
+        <div className="z-10 font-sans text-xl text-black">
+          <div className="rounded-xl bg-black">
+            <div className="w-full -translate-y-1 cursor-pointer overflow-hidden rounded-xl border-2 border-black bg-green-400 px-2 py-1 font-sans text-xl font-medium text-black transition-all hover:translate-y-0">
+              <label htmlFor="image-upload" className="cursor-pointer">
+                Select Image
+              </label>
+            </div>
+          </div>
           <input
+            id="image-upload"
+            className="hidden"
             type="file"
+            accept="image/png, image/jpeg"
             onChange={(e) => {
               const file = e.target.files?.[0];
               if (!file) return;
@@ -186,33 +199,7 @@ const Dither = () => {
           />
         </div>
         {ditheredSource && (
-          <motion.div
-            initial={{
-              translateY: "100%",
-              opacity: 0,
-            }}
-            animate={{
-              translateY: 0,
-              opacity: 1,
-            }}
-            exit={{
-              translateY: "100%",
-              opacity: 0,
-            }}
-            transition={{
-              type: "spring",
-              bounce: 0.3,
-              duration: 0.3,
-              ease: "easeInOut",
-            }}
-            key={ditheredSource}
-            className="min-h-0 w-fit justify-center overflow-hidden rounded-3xl border-2 border-black"
-          >
-            <img
-              src={ditheredSource}
-              className="object-contain object-center"
-            />
-          </motion.div>
+          <PrintOutImage key={ditheredSource} ditheredSource={ditheredSource} />
         )}
       </div>
       <canvas ref={canvasRef} className="relative hidden"></canvas>
