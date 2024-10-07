@@ -33,7 +33,7 @@ const CodeBackground = () => {
       className="notranslate absolute inset-0 z-0 opacity-0 transition-opacity duration-300 hover:opacity-100"
     >
       <div className="relative isolate h-full w-full">
-        <p className="absolute -left-2 -right-2 bottom-0 top-0 z-0 select-none tabular-nums">
+        <p className="notranslate absolute -left-2 -right-2 bottom-0 top-0 z-0 select-none tabular-nums">
           {Array.from(new Array(364)).map((id, ind) => {
             const characterIndex =
               (Math.floor(Math.random() * matrixArray.length) + currentIndex) %
@@ -42,7 +42,7 @@ const CodeBackground = () => {
             return (
               <motion.span
                 key={ind}
-                className=" size-3 text-2xl text-green-500 opacity-100"
+                className=" notranslate size-3 text-2xl text-green-500 opacity-100"
               >
                 {character}
               </motion.span>
