@@ -28,7 +28,7 @@ const PrintOutImage = ({ ditheredSource, children }: PrintOutImageProps) => {
         duration: 1.3,
         ease: "easeInOut",
       }}
-      className="relative min-h-0 w-fit justify-center overflow-hidden rounded-3xl border-2 border-black"
+      className="relative mx-auto min-h-0 w-fit justify-center overflow-hidden rounded-3xl border-2 border-black"
     >
       <img src={ditheredSource} className="object-contain object-center" />
       {children}

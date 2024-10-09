@@ -3,15 +3,15 @@
 import React, { useEffect } from "react";
 
 import PrintOutImage from "./print-out-image";
-
-import { Upload } from "lucide-react";
+import DitherControls from "./dither-controls";
+import { useMediaQuery } from "usehooks-ts";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../ui/select";
+  Drawer,
+  DrawerContent,
+  DrawerTitle,
+  DrawerTrigger,
+} from "../ui/drawer";
+import TactileButton from "../TactileButton";
 
 type RGBA = {
   red: number;
@@ -49,7 +49,39 @@ const setRGBA = (imageData: ImageData, x: number, y: number, rgba: RGBA) => {
   imageData.data[offset + 2] = rgba.blue;
 };
 
-const ditherImageFSB = (ctx: CanvasRenderingContext2D, image: ImageData) => {
+const getRgbaFromHex = (hex: string) => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  if (!result) return null;
+  const resultRed = result[1];
+  const resultGreen = result[2];
+  const resultBlue = result[3];
+  if (!resultRed || !resultGreen || !resultBlue) {
+    return null;
+  }
+  return result
+    ? {
+        red: parseInt(resultRed, 16),
+        green: parseInt(resultBlue, 16),
+        blue: parseInt(resultGreen, 16),
+        alpha: 1,
+      }
+    : null;
+};
+
+const getModifiedRgba = (value: number, rgba: RGBA) => {
+  return {
+    red: rgba.red * value,
+    green: rgba.green * value,
+    blue: rgba.blue * value,
+    alpha: 1,
+  };
+};
+
+const ditherImageFSB = (
+  ctx: CanvasRenderingContext2D,
+  image: ImageData,
+  color: RGBA,
+) => {
   for (let y = 0; y < image.height - 1; y++) {
     for (let x = 0; x < image.width - 1; x++) {
       // Get current pixel rgba
@@ -69,12 +101,7 @@ const ditherImageFSB = (ctx: CanvasRenderingContext2D, image: ImageData) => {
 
       // Assign new pixel values
 
-      setRGBA(image, x, y, {
-        red: newGray,
-        green: newGray,
-        blue: newGray,
-        alpha: 1,
-      });
+      setRGBA(image, x, y, getModifiedRgba(newGray, color));
 
       const rightPixel = getRGBA(image, x + 1, y);
 
@@ -119,6 +146,7 @@ const ditherImageFSB = (ctx: CanvasRenderingContext2D, image: ImageData) => {
 const ditherImageOrdered = (
   ctx: CanvasRenderingContext2D,
   image: ImageData,
+  color: RGBA,
 ) => {
   const ditherMatrix = [
     [1, 49, 13, 61, 4, 52, 16, 64],
@@ -148,18 +176,34 @@ const ditherImageOrdered = (
           ? 255
           : 0;
 
-      setRGBA(image, x, y, {
-        red: newValue,
-        green: newValue,
-        blue: newValue,
-        alpha: 1,
-      });
+      setRGBA(image, x, y, getModifiedRgba(newValue, color));
     }
   }
   ctx.putImageData(image, 0, 0);
 };
 
-type DitherType = keyof typeof ditherTypes;
+export type DitherType = keyof typeof ditherTypes;
+
+const ditherColors = {
+  red: {
+    name: "red",
+    value: "#ff0000",
+  },
+  green: {
+    name: "green",
+    value: "#0000ff",
+  },
+  blue: {
+    name: "blue",
+    value: "#00ff00",
+  },
+  black: {
+    name: "black",
+    value: "#ffffff",
+  },
+} as const;
+
+export type DitherColor = keyof typeof ditherColors;
 
 const ditherTypes = {
   fsb: ditherImageFSB,
@@ -172,10 +216,19 @@ const Dither = () => {
   const [ditheredSource, setDitheredSource] = React.useState<string>();
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const offScreenCanvasRef = React.useRef<HTMLCanvasElement>(null);
+  const [ditherColor, setDitherColor] = React.useState<DitherColor>("black");
+  const [customHex, setCustomHex] = React.useState<string>("#ae3bd1");
+
+  const isDesktop = useMediaQuery("(min-width: 924px)");
 
   const handleImageLoad = (
     image: HTMLImageElement,
-    ditherFunction: (ctx: CanvasRenderingContext2D, image: ImageData) => void,
+    color: RGBA,
+    ditherFunction: (
+      ctx: CanvasRenderingContext2D,
+      image: ImageData,
+      color: RGBA,
+    ) => void,
   ) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -193,7 +246,7 @@ const Dither = () => {
     canvas.height = newImageHeight;
     ctx.drawImage(image, 0, 0, newImageWidth, newImageHeight);
     const imageData = ctx.getImageData(0, 0, newImageWidth, newImageHeight);
-    ditherFunction(ctx, imageData);
+    ditherFunction(ctx, imageData, color);
     setDitheredSource(canvas.toDataURL());
   };
 
@@ -213,64 +266,50 @@ const Dither = () => {
     const image = new Image();
     image.src = imageSrc;
     image.onload = () => {
-      handleImageLoad(image, ditherTypes[ditherType]);
+      const hex = ditherColors[ditherColor].value;
+      const rgba = getRgbaFromHex(hex);
+      if (!rgba) return;
+      handleImageLoad(image, rgba, ditherTypes[ditherType]);
     };
-  }, [imageSrc, ditherType]);
+  }, [imageSrc, ditherType, ditherColor]);
 
   return (
-    <div>
-      <div className="flex flex-col items-center gap-4 overflow-hidden p-2 md:p-4">
-        <div className="flex items-end justify-center gap-12">
-          <div className="flex flex-col gap-2">
-            <label>Dither Type</label>
-            <Select
-              onValueChange={(value: DitherType) =>
-                value && setDitherType(value)
-              }
-              value={ditherType}
-            >
-              <SelectTrigger className="w-[160px]">
-                <SelectValue placeholder="Floyd-Steinberg" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="fsb">Floyd-Steinberg</SelectItem>
-                <SelectItem value="ordered">Ordered</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="z-10 font-sans text-xl text-black">
-            <div className="rounded-xl bg-black">
-              <div className="w-full -translate-y-1 cursor-pointer overflow-hidden rounded-xl border-2 border-black bg-green-400 px-2 py-1 font-sans text-xl  text-black transition-all hover:translate-y-0">
-                <label
-                  htmlFor="image-upload"
-                  className="flex  cursor-pointer items-center gap-2"
-                >
-                  <span>Select Image </span>
-                  <Upload size={20} aria-hidden="true" />
-                </label>
-              </div>
-            </div>
-            <input
-              id="image-upload"
-              className="hidden"
-              type="file"
-              accept="image/png, image/jpeg"
-              onChange={(e) => {
-                const file = e.target.files?.[0];
-                if (!file) return;
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                  const image = new Image();
-                  image.src = e.target?.result as string;
-                  image.onload = () => {
-                    setImageSrc(image.src);
-                  };
-                };
-                reader.readAsDataURL(file);
-              }}
+    <div className="flex w-full flex-1 justify-center lg:items-center">
+      <div className="flex flex-1 flex-col items-center gap-4 overflow-hidden p-2 lg:flex-row">
+        {isDesktop ? (
+          <div className="rounded-xl border-2 border-black p-2">
+            <DitherControls
+              ditherType={ditherType}
+              setDitherType={setDitherType}
+              ditherColor={ditherColor}
+              setDitherColor={setDitherColor}
+              setImageSrc={setImageSrc}
+              ditherColors={ditherColors}
             />
           </div>
-        </div>
+        ) : (
+          <Drawer>
+            <div className="mt-2">
+              <DrawerTrigger asChild>
+                <TactileButton>Controls</TactileButton>
+              </DrawerTrigger>
+            </div>
+            <DrawerContent>
+              <div className="flex flex-col items-center gap-8 p-4">
+                <DrawerTitle>Dither Controls</DrawerTitle>
+                <DitherControls
+                  ditherType={ditherType}
+                  setDitherType={setDitherType}
+                  ditherColor={ditherColor}
+                  setDitherColor={setDitherColor}
+                  setImageSrc={setImageSrc}
+                  ditherColors={ditherColors}
+                />
+              </div>
+            </DrawerContent>
+          </Drawer>
+        )}
+
         {ditheredSource && (
           <PrintOutImage key={ditheredSource} ditheredSource={ditheredSource} />
         )}
