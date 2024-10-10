@@ -16,7 +16,10 @@ const DitherColorSelector = ({
     <button
       style={{ backgroundColor: color }}
       onClick={() => onSelect(color)}
-      className={cn(`size-8  border-2 border-black`, className)}
+      className={cn(
+        `size-8 rounded-full border-2 border-black transition-all`,
+        className,
+      )}
     ></button>
   );
 };

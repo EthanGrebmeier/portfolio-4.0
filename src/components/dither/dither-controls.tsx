@@ -47,12 +47,14 @@ const DitherControls = ({
       </div>
       <div className="flex flex-col gap-2">
         <label>Color</label>
-        <div className="flex gap-1">
+        <div className="flex gap-1 rounded-xl border-2 border-black px-2 py-1">
           {Object.values(ditherColors).map(({ name, value }) => (
             <DitherColorSelector
               key={name}
               color={name}
-              className={cn(ditherColor === name ? "border-[4px]" : "")}
+              className={cn(
+                ditherColor === name ? "border-[4px]" : "hover:border-[4px]",
+              )}
               onSelect={(color) => setDitherColor(color)}
             />
           ))}

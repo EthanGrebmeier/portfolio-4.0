@@ -185,6 +185,10 @@ const ditherImageOrdered = (
 export type DitherType = keyof typeof ditherTypes;
 
 const ditherColors = {
+  white: {
+    name: "white",
+    value: "#fefefe",
+  },
   red: {
     name: "red",
     value: "#ff0000",
@@ -196,10 +200,6 @@ const ditherColors = {
   blue: {
     name: "blue",
     value: "#00ff00",
-  },
-  black: {
-    name: "black",
-    value: "#ffffff",
   },
 } as const;
 
@@ -216,7 +216,7 @@ const Dither = () => {
   const [ditheredSource, setDitheredSource] = React.useState<string>();
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const offScreenCanvasRef = React.useRef<HTMLCanvasElement>(null);
-  const [ditherColor, setDitherColor] = React.useState<DitherColor>("black");
+  const [ditherColor, setDitherColor] = React.useState<DitherColor>("white");
   const [customHex, setCustomHex] = React.useState<string>("#ae3bd1");
 
   const isDesktop = useMediaQuery("(min-width: 924px)");
