@@ -291,7 +291,9 @@ const Dither = () => {
           <Drawer>
             <div className="mt-2">
               <DrawerTrigger asChild>
-                <TactileButton>Controls</TactileButton>
+                <TactileButton>
+                  {ditheredSource ? "Edit Image" : "Dither Image"}
+                </TactileButton>
               </DrawerTrigger>
             </div>
             <DrawerContent>
