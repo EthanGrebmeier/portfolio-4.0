@@ -15,7 +15,7 @@ const ColorControls = () => {
   };
 
   return (
-    <div className="grid w-full grid-cols-2">
+    <div className="grid w-full">
       <div className="flex flex-col gap-2">
         <label>Colors</label>
         <div className="flex gap-2">
