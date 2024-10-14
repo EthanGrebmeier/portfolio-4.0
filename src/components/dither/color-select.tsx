@@ -15,7 +15,6 @@ const ColorSelector = ({ color, onSelect }: ColorSelectorProps) => {
   const ref = React.useRef<HTMLDivElement>(null);
   useOutsideAlerter(ref, () => {
     setShowPalette(false);
-    console.log("Outside");
   });
 
   return (

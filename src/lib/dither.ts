@@ -162,7 +162,7 @@ const ditherImageOrdered = (
           ? 255
           : 0;
 
-      setRGBA(image, x, y, newValue === 255 ? color.rgbaTwo : color.rgbaOne);
+      setRGBA(image, x, y, newValue === 255 ? color.rgbaOne : color.rgbaTwo);
     }
   }
   ctx.putImageData(image, 0, 0);
