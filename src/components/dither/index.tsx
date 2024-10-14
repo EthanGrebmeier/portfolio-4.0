@@ -98,7 +98,7 @@ const Dither = () => {
   }, [imageSrc, ditherType, ditherColorOne, ditherColorTwo]);
 
   return (
-    <div className="flex w-full flex-1 justify-center lg:items-center">
+    <div className="flex w-full flex-1 justify-center overflow-hidden lg:items-center">
       <div className="flex flex-1 flex-col items-center gap-4 p-2 lg:flex-row">
         {isDesktop ? (
           <div className="h-fit w-auto rounded-xl border-2 border-black p-2 transition-all">
