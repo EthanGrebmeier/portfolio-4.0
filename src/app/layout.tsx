@@ -2,6 +2,7 @@ import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
 
 import "../styles/globals.css";
+import { Provider } from "jotai";
 
 const BodyFont = Plus_Jakarta_Sans({
   weight: ["400", "600"],
@@ -34,9 +35,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${BodyFont.className} ${junicode.variable} `}>
-        {children}
-      </body>
+      <Provider>
+        <body className={`${BodyFont.className} ${junicode.variable} `}>
+          {children}
+        </body>
+      </Provider>
     </html>
   );
 }

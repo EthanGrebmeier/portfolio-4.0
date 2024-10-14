@@ -1,23 +1,25 @@
-import React from "react";
-import type { DitherColor } from ".";
+import React, { CSSProperties } from "react";
 import { cn } from "~/helpers/cn";
+import { Color } from "./types";
 type DitherColorProps = {
-  color: DitherColor;
-  onSelect: (color: DitherColor) => void;
+  color: Color;
+  onSelect: (color: Color) => void;
   className?: string;
+  style: CSSProperties;
 };
 
 const DitherColorSelector = ({
   onSelect,
   color,
   className,
+  style,
 }: DitherColorProps) => {
   return (
     <button
-      style={{ backgroundColor: color }}
+      style={style}
       onClick={() => onSelect(color)}
       className={cn(
-        `size-8 rounded-full border-2 border-black transition-all`,
+        `size-7 rounded-full border-2 border-black transition-all`,
         className,
       )}
     ></button>

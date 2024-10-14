@@ -6,26 +6,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { DitherColor, DitherType } from ".";
-import DitherColorSelector from "./dither-color";
-import { cn } from "~/helpers/cn";
+
 import { Upload } from "lucide-react";
+import ColorControls from "./color-controls";
+import { DitherType } from "./types";
 
 type DitherControlsProps = {
   ditherType: DitherType;
   setDitherType: (type: DitherType) => void;
-  ditherColor: DitherColor;
-  setDitherColor: (color: DitherColor) => void;
   setImageSrc: (src: string) => void;
-  ditherColors: Record<DitherColor, { name: DitherColor; value: string }>;
 };
 
 const DitherControls = ({
-  ditherColors,
   ditherType,
   setDitherType,
-  ditherColor,
-  setDitherColor,
   setImageSrc,
 }: DitherControlsProps) => {
   return (
@@ -45,29 +39,16 @@ const DitherControls = ({
           </SelectContent>
         </Select>
       </div>
-      <div className="flex flex-col gap-2">
-        <label>Color</label>
-        <div className="flex gap-1 rounded-xl border-2 border-black px-2 py-1">
-          {Object.values(ditherColors).map(({ name, value }) => (
-            <DitherColorSelector
-              key={name}
-              color={name}
-              className={cn(
-                ditherColor === name ? "border-[4px]" : "hover:border-[4px]",
-              )}
-              onSelect={(color) => setDitherColor(color)}
-            />
-          ))}
-        </div>
-      </div>
-      <div className="z-10 mt-2 font-sans text-xl text-black">
-        <div className="rounded-xl bg-black">
+      <ColorControls />
+      <div className=" z-10 flex w-full flex-col gap-2 font-sans text-xl text-black">
+        <p className="text-lg font-light"> Image </p>
+        <div className="w-full rounded-xl bg-black">
           <div className="w-full -translate-y-1 cursor-pointer overflow-hidden rounded-xl border-2 border-black bg-green-400 px-2 py-1 font-sans text-xl  text-black transition-all hover:translate-y-0">
             <label
               htmlFor="image-upload"
-              className="flex  cursor-pointer items-center gap-2"
+              className="flex  cursor-pointer items-center justify-center gap-2"
             >
-              <span>Select Image </span>
+              <span>Upload </span>
               <Upload size={20} aria-hidden="true" />
             </label>
           </div>
