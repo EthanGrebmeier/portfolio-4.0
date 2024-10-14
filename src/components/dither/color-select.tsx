@@ -19,7 +19,7 @@ const ColorSelector = ({ color, onSelect }: ColorSelectorProps) => {
 
   return (
     <div className="relative" ref={ref}>
-      <div className="absolute -left-2 top-4 z-20 ">
+      <div className="absolute -left-2 top-4 z-20 -translate-y-full ">
         <AnimatePresence>
           {showPalette && (
             <ColorPalette
