@@ -109,7 +109,9 @@ const Dither = () => {
             />
           </div>
         ) : (
-          <Drawer>
+          <Drawer
+            repositionInputs={false}
+          >
             <div className="mt-2">
               <DrawerTrigger asChild>
                 <TactileButton>
