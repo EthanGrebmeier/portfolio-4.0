@@ -39,7 +39,7 @@ const ColorPalette = ({ ditherColor, setDitherColor }: ColorPaletteProps) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.1 }}
-      className="flex h-auto w-max flex-col gap-2 rounded-xl border-2 border-black bg-background px-2 transition-all"
+      className="flex h-auto w-max flex-col gap-2 rounded-xl border-2 border-black bg-background px-2"
     >
       <motion.div
         animate={{
