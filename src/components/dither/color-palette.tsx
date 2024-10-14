@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from "react";
 import { Color } from "./types";
 import DitherColorSelector from "./dither-color";
 import { cn } from "~/helpers/cn";
-import { Plus, Trash2, XCircle } from "lucide-react";
+import { Brush, Plus, Trash2, XCircle } from "lucide-react";
 import { useAtom } from "jotai";
 import { paletteSwatchesAtom } from "./atom";
 import { getRgbaFromHex } from "~/lib/dither";
@@ -11,7 +11,7 @@ import useMeasure from "react-use-measure";
 
 type ColorPaletteProps = {
   ditherColor: Color;
-  setDitherColor: (color: Color) => void;
+  setDitherColor: (color: Color, shouldClose?: boolean) => void;
 };
 
 const ColorPalette = ({ ditherColor, setDitherColor }: ColorPaletteProps) => {
@@ -33,77 +33,92 @@ const ColorPalette = ({ ditherColor, setDitherColor }: ColorPaletteProps) => {
     return getRgbaFromHex(colorInput);
   }, [colorInput]);
 
+  const missingColors = React.useMemo(() => {
+    const difference = 12 - paletteSwatches.length;
+    return difference > 0 ? difference : 0;
+  }, [paletteSwatches]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.15 }}
-      className="flex h-auto w-max flex-col gap-2 rounded-xl border-2 border-black bg-background px-2"
+      className="flex h-auto w-max min-w-[240px] flex-col gap-2 rounded-xl border-2 border-black bg-background px-2 "
     >
       <motion.div
         animate={{
           height: bounds.height,
           width: bounds.width,
         }}
-        className="overflow-hidden"
+        transition={{ duration: 0.25, ease: [0.48, 0.15, 0.25, 0.96] }}
       >
         <div ref={elementRef}>
           {panelName === "palette" ? (
-            <div className="z-20 flex justify-between gap-2">
-              <div className="grid w-full grid-cols-4 grid-rows-2 gap-1 py-1">
-                {Object.values(paletteSwatches).map((color) => (
-                  <DitherColorSelector
-                    key={color.id}
-                    color={color}
-                    style={{ backgroundColor: color.color }}
-                    className={cn(
-                      ditherColor.id === color.id
-                        ? "border-[4px]"
-                        : "hover:border-[4px]",
-                    )}
-                    onSelect={(color) => setDitherColor(color)}
-                  />
-                ))}
+            <div className="">
+              <div className="">
+                <h2 className="text-base font-bold">Palette</h2>
               </div>
-              <div className="grid gap-1 border-l-2 border-black py-1 pl-2">
-                <button
-                  onClick={() => setPanelName("input")}
-                  className="group flex size-7 items-center justify-center rounded-full border-2 border-black bg-green-400 transition-colors disabled:cursor-not-allowed disabled:bg-gray-400"
-                >
-                  <Plus size={17} aria-hidden="true" fill="green" />
-                </button>
-                <button
-                  className="group flex size-7 items-center justify-center rounded-full border-2 border-black bg-red-400 transition-colors disabled:cursor-not-allowed disabled:bg-gray-400"
-                  disabled={ditherColor.id === 1}
-                  onClick={() => {
-                    if (ditherColor.id === 1) return;
-                    const ditherColorIndex = paletteSwatches.findIndex(
-                      (color) => color.id === ditherColor.id,
-                    );
-                    setDitherColor(
-                      paletteSwatches[ditherColorIndex - 1] ??
-                        paletteSwatches[0] ?? {
-                          color: "#fefefe",
-                          id: 1,
-                        },
-                    );
-                    const newColors = [...paletteSwatches];
-                    newColors.splice(ditherColorIndex, 1);
-                    setPaletteSwatches(newColors);
-                  }}
-                >
-                  <Trash2 size={17} aria-hidden="true" />
-                </button>
+              <div className="z-20 flex justify-between gap-2">
+                <div className="grid w-full grid-cols-6 gap-1 py-1">
+                  {Object.values(paletteSwatches).map((color) => (
+                    <DitherColorSelector
+                      key={color.id}
+                      color={color}
+                      style={{ backgroundColor: color.color }}
+                      className={cn(
+                        ditherColor.id === color.id
+                          ? "border-[4px]"
+                          : "hover:border-[4px]",
+                      )}
+                      onSelect={(color) => setDitherColor(color)}
+                    />
+                  ))}
+                  {Array(missingColors)
+                    .fill(0)
+                    .map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setPanelName("input")}
+                        className="size-7 rounded-full border-2 border-black bg-sky-100"
+                      ></button>
+                    ))}
+                </div>
+                <div className="flex flex-col gap-1  border-black py-1 pl-2">
+                  <button
+                    onClick={() => setPanelName("input")}
+                    className="group flex size-7 items-center justify-center rounded-full border-2 border-black bg-green-400 transition-colors disabled:cursor-not-allowed disabled:bg-gray-400"
+                  >
+                    <Plus size={17} aria-hidden="true" fill="green" />
+                  </button>
+                  <button
+                    className="group flex size-7 items-center justify-center rounded-full border-2 border-black bg-red-400 transition-colors disabled:cursor-not-allowed disabled:bg-gray-400"
+                    disabled={ditherColor.id === 1}
+                    onClick={() => {
+                      if (ditherColor.id === 1) return;
+                      const ditherColorIndex = paletteSwatches.findIndex(
+                        (color) => color.id === ditherColor.id,
+                      );
+                      setDitherColor(
+                        paletteSwatches[ditherColorIndex - 1] ??
+                          paletteSwatches[0] ?? {
+                            color: "#fefefe",
+                            id: 1,
+                          },
+                      );
+                      const newColors = [...paletteSwatches];
+                      newColors.splice(ditherColorIndex, 1);
+                      setPaletteSwatches(newColors);
+                    }}
+                  >
+                    <Trash2 size={17} aria-hidden="true" />
+                  </button>
+                </div>
               </div>
             </div>
           ) : (
-            <div className="relative w-full py-2">
-              <div className="absolute right-0 top-2">
-                <button onClick={() => setPanelName("palette")}>
-                  <XCircle size={25} aria-hidden="true" fill="red" />
-                </button>
-              </div>
+            <div className="relative w-full px-2 py-2">
+              <h2 className="mb-2 text-xl font-bold">Add Color </h2>
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -115,28 +130,49 @@ const ColorPalette = ({ ditherColor, setDitherColor }: ColorPaletteProps) => {
                       colorInput[0] === "#" ? colorInput : "#" + colorInput,
                   };
                   setPaletteSwatches([...paletteSwatches, formattedColor]);
-                  setDitherColor(formattedColor);
+                  setDitherColor(formattedColor, false);
                   setPanelName("palette");
                   setColorInput("");
                 }}
-                className="flex flex-col gap-2"
+                className="flex w-full flex-col gap-1"
               >
                 <label>Hex Color</label>
 
-                <input
-                  className="h-10 rounded-xl border-2 border-black px-2 py-1"
-                  placeholder="#000000"
-                  value={colorInput}
-                  ref={colorInputRef}
-                  onChange={(e) => setColorInput(e.target.value)}
-                />
+                <div className="flex w-full gap-1">
+                  <input
+                    className="h-10 min-w-0 flex-shrink rounded-xl border-2 border-black px-2 py-1"
+                    placeholder="#000000"
+                    value={colorInput}
+                    ref={colorInputRef}
+                    onChange={(e) => setColorInput(e.target.value)}
+                  />
+                  <div className="relative h-10 w-12 overflow-hidden rounded-xl border-2 border-black bg-none">
+                    <div className="h-full w-full overflow-hidden rounded-lg">
+                      <input
+                        className="-left-1/2 -top-1/2 h-[250%] w-[250%] -translate-x-1/4 -translate-y-1/4 cursor-pointer rounded-full border-none p-0 outline-none"
+                        type="color"
+                        value={colorInput}
+                        onChange={(e) => setColorInput(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </div>
 
-                <button
-                  className="rounded-xl border-2 border-black bg-green-500 px-3 py-1 font-bold transition-all disabled:opacity-40"
-                  disabled={!isInputValid}
-                >
-                  Add Color
-                </button>
+                <div className="mt-4  grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    className="rounded-xl border-2 border-black bg-yellow-200 px-3 py-1 font-bold"
+                    onClick={() => setPanelName("palette")}
+                  >
+                    Back
+                  </button>
+                  <button
+                    className=" rounded-xl border-2 border-black bg-green-500 px-2 py-1 font-bold transition-all disabled:opacity-40"
+                    disabled={!isInputValid}
+                  >
+                    Add Color
+                  </button>
+                </div>
               </form>
             </div>
           )}

@@ -99,7 +99,7 @@ const Dither = () => {
 
   return (
     <div className="flex w-full flex-1 justify-center lg:items-center">
-      <div className="flex flex-1 flex-col items-center gap-4 overflow-hidden p-2 lg:flex-row">
+      <div className="flex flex-1 flex-col items-center gap-4 p-2 lg:flex-row">
         {isDesktop ? (
           <div className="h-fit w-auto rounded-xl border-2 border-black p-2 transition-all">
             <DitherControls
@@ -109,9 +109,7 @@ const Dither = () => {
             />
           </div>
         ) : (
-          <Drawer
-            repositionInputs={false}
-          >
+          <Drawer repositionInputs={false}>
             <div className="mt-2">
               <DrawerTrigger asChild>
                 <TactileButton>

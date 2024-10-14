@@ -23,9 +23,9 @@ const ColorSelector = ({ color, onSelect }: ColorSelectorProps) => {
         <AnimatePresence>
           {showPalette && (
             <ColorPalette
-              setDitherColor={(color) => {
+              setDitherColor={(color, shouldClose = false) => {
                 onSelect(color);
-                setShowPalette(false);
+                shouldClose && setShowPalette(false);
               }}
               ditherColor={color}
             />
