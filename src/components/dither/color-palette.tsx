@@ -66,8 +66,9 @@ const ColorPalette = ({ ditherColor, setDitherColor }: ColorPaletteProps) => {
                       key={color.id}
                       color={color}
                       style={{ backgroundColor: color.color }}
+                      isSelected={ditherColor.id === color.id}
                       className={cn(
-                        " group-hover:bg-blend-darken group-hover:hover:border-[4px] group-hover:hover:bg-blend-normal",
+                        " group-hover:bg-blend-darken group-hover:hover:border-[4px] group-hover:hover:bg-blend-normal data-[selected=true]:border-[4px] ",
                       )}
                       onSelect={(color) => setDitherColor(color)}
                     />

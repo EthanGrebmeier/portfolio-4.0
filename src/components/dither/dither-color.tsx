@@ -6,6 +6,7 @@ type DitherColorProps = {
   onSelect: (color: Color) => void;
   className?: string;
   style: CSSProperties;
+  isSelected: boolean;
 };
 
 const DitherColorSelector = ({
@@ -13,9 +14,11 @@ const DitherColorSelector = ({
   color,
   className,
   style,
+  isSelected,
 }: DitherColorProps) => {
   return (
     <button
+      data-selected={isSelected}
       style={style}
       onClick={() => onSelect(color)}
       className={cn(`size-7 rounded-full border-2 border-black `, className)}
