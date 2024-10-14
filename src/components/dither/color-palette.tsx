@@ -44,7 +44,7 @@ const ColorPalette = ({ ditherColor, setDitherColor }: ColorPaletteProps) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.15 }}
-      className="flex h-auto w-max min-w-[240px] flex-col gap-2 overflow-hidden rounded-xl border-2 border-black bg-background px-2 "
+      className="flex h-auto w-[200px] flex-col gap-2 overflow-hidden rounded-xl border-2 border-black bg-background px-2 "
     >
       <motion.div
         animate={{
@@ -60,16 +60,14 @@ const ColorPalette = ({ ditherColor, setDitherColor }: ColorPaletteProps) => {
                 <h2 className="text-base font-bold">Palette</h2>
               </div>
               <div className="z-20 flex justify-between gap-2">
-                <div className="grid w-full grid-cols-6 gap-1 py-1">
+                <div className="group grid w-full grid-cols-6 gap-1 py-1">
                   {Object.values(paletteSwatches).map((color) => (
                     <DitherColorSelector
                       key={color.id}
                       color={color}
                       style={{ backgroundColor: color.color }}
                       className={cn(
-                        ditherColor.id === color.id
-                          ? "border-[4px]"
-                          : "hover:border-[4px]",
+                        " group-hover:bg-blend-darken group-hover:hover:border-[4px] group-hover:hover:bg-blend-normal",
                       )}
                       onSelect={(color) => setDitherColor(color)}
                     />
@@ -80,7 +78,7 @@ const ColorPalette = ({ ditherColor, setDitherColor }: ColorPaletteProps) => {
                       <button
                         key={index}
                         onClick={() => setPanelName("input")}
-                        className="size-7 rounded-full border-2 border-black bg-sky-100"
+                        className="size-7 rounded-full border-2 border-black bg-sky-100 transition-colors hover:border-4 hover:bg-sky-300"
                       ></button>
                     ))}
                 </div>
@@ -158,7 +156,7 @@ const ColorPalette = ({ ditherColor, setDitherColor }: ColorPaletteProps) => {
                   </div>
                 </div>
 
-                <div className="mt-4  grid grid-cols-2 gap-2">
+                <div className="mt-4  grid grid-cols-2 gap-2 text-sm">
                   <button
                     type="button"
                     className="rounded-xl border-2 border-black bg-yellow-200 px-3 py-1 font-bold"
@@ -170,7 +168,7 @@ const ColorPalette = ({ ditherColor, setDitherColor }: ColorPaletteProps) => {
                     className=" rounded-xl border-2 border-black bg-green-500 px-2 py-1 font-bold transition-all disabled:opacity-40"
                     disabled={!isInputValid}
                   >
-                    Add Color
+                    Add
                   </button>
                 </div>
               </form>
