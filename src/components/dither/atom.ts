@@ -1,4 +1,5 @@
 import { atom } from "jotai";
+import { atomWithStorage, createJSONStorage } from "jotai/utils";
 import { Color } from "./types";
 
 const colorOne = {
@@ -30,3 +31,14 @@ const initialColors: Color[] = [
 export const paletteSwatchesAtom = atom<Color[]>(initialColors);
 export const ditherColorOneAtom = atom<Color>(colorOne);
 export const ditherColorTwoAtom = atom<Color>(colorTwo);
+
+const savedImageJsonStorage = createJSONStorage<string[]>(() => localStorage);
+
+export const savedImagesAtom = atomWithStorage<string[]>(
+  "savedImages",
+  [],
+  savedImageJsonStorage,
+  {
+    getOnInit: true,
+  },
+);

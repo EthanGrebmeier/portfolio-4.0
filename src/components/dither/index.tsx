@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import PrintOutImage from "./print-out-image";
 import DitherControls from "./dither-controls";
@@ -8,6 +8,7 @@ import { useMediaQuery } from "usehooks-ts";
 import {
   Drawer,
   DrawerContent,
+  DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from "../ui/drawer";
@@ -20,6 +21,8 @@ import {
 } from "./atom";
 import { DitherType, RGBA } from "./types";
 import { ditherTypes, getRgbaFromHex } from "~/lib/dither";
+import SavedImages from "./saved-images";
+import Button from "../ui/button";
 
 const Dither = () => {
   const [imageSrc, setImageSrc] = React.useState<string>();
@@ -29,6 +32,7 @@ const Dither = () => {
   const offScreenCanvasRef = React.useRef<HTMLCanvasElement>(null);
   const [ditherColorOne, setDitherColorOne] = useAtom(ditherColorOneAtom);
   const [ditherColorTwo, setDitherColorTwo] = useAtom(ditherColorTwoAtom);
+  const [isSavedImagesOpen, setIsSavedImagesOpen] = useState(false);
 
   const isDesktop = useMediaQuery("(min-width: 924px)");
 
@@ -100,38 +104,71 @@ const Dither = () => {
   return (
     <div className="flex w-full flex-1 justify-center overflow-hidden lg:items-center">
       <div className="flex flex-1 flex-col items-center gap-4 p-2 lg:flex-row">
-        {isDesktop ? (
-          <div className="h-fit w-auto rounded-xl border-2 border-black p-2 transition-all">
-            <DitherControls
-              ditherType={ditherType}
-              setDitherType={setDitherType}
-              setImageSrc={setImageSrc}
-            />
-          </div>
-        ) : (
-          <Drawer repositionInputs={false}>
-            <div className="mt-2">
-              <DrawerTrigger asChild>
-                <TactileButton>
-                  {ditheredSource ? "Edit Image" : "Dither Image"}
-                </TactileButton>
-              </DrawerTrigger>
-            </div>
-            <DrawerContent>
-              <div className="flex flex-col items-center gap-8 p-4">
-                <DrawerTitle>Dither Controls</DrawerTitle>
-                <DitherControls
-                  ditherType={ditherType}
-                  setDitherType={setDitherType}
-                  setImageSrc={setImageSrc}
-                />
+        <div className="flex  flex-col gap-4">
+          {isDesktop ? (
+            <div className="flex max-w-[240px] flex-col gap-4">
+              <div className="flex flex-col gap-2">
+                <p className="text-lg  font-semibold">Controls</p>
+                <div className="h-fit w-[240px] rounded-xl border-2 border-black p-2 transition-all">
+                  <DitherControls
+                    ditherType={ditherType}
+                    setDitherType={setDitherType}
+                    setImageSrc={setImageSrc}
+                  />
+                </div>
               </div>
-            </DrawerContent>
-          </Drawer>
-        )}
-
+              <div className="flex flex-1 flex-col gap-2">
+                <p className="text-lg font-semibold"> Saved Images</p>
+                <div className="flex-1 rounded-xl border-2 border-black">
+                  <SavedImages />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="flex gap-4">
+              <Drawer repositionInputs={false}>
+                <DrawerTrigger asChild>
+                  <Button className="bg-blue-400">
+                    {ditheredSource ? "Edit Image" : "Dither Image"}
+                  </Button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <div className="flex flex-col items-center gap-8 p-4">
+                    <DrawerTitle>Dither Controls</DrawerTitle>
+                    <DitherControls
+                      ditherType={ditherType}
+                      setDitherType={setDitherType}
+                      setImageSrc={setImageSrc}
+                    />
+                  </div>
+                </DrawerContent>
+              </Drawer>
+              <Drawer
+                open={isSavedImagesOpen}
+                onOpenChange={setIsSavedImagesOpen}
+                repositionInputs={false}
+              >
+                <DrawerTrigger asChild>
+                  <Button className="bg-green-400">Saved Images</Button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <div className="p-4">
+                    <DrawerHeader>
+                      <DrawerTitle>Saved Images</DrawerTitle>
+                    </DrawerHeader>
+                    <SavedImages />
+                  </div>
+                </DrawerContent>
+              </Drawer>
+            </div>
+          )}
+        </div>
         {ditheredSource && (
-          <PrintOutImage key={ditheredSource} ditheredSource={ditheredSource} />
+          <PrintOutImage
+            onSave={() => setIsSavedImagesOpen(true)}
+            key={ditheredSource}
+            ditheredSource={ditheredSource}
+          />
         )}
       </div>
       <canvas ref={canvasRef} className="relative hidden"></canvas>
