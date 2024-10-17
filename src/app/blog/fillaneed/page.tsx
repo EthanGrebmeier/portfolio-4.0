@@ -73,29 +73,19 @@ const BlogArticle = () => {
                 something cool that I may want to get, the idea of it is
                 immediately ejected from my brain.
               </p>
-              <p className="inline">
-                The solution to this problem must be easy, right? I just need to
-                write the ideas down and boom, problem solved. But what fun is
-                there in doing things the easy way?
-              </p>
-              <span className="mt-1 block">
+              <span className="mt-2 block">
                 <p className="inline">
-                  I immediately got to work ideating, designing and prototyping
-                  a small wishlist builder that would eventually scope-creep
-                  itself into a full fledged
-                  wishlist/registry/whatever-kind-of-list-you-want builder
-                  called fillaneed
+                  Seeing this as a challenge for myself, I immediately got to
+                  work ideating, designing and prototyping a small wishlist
+                  builder that would eventually scope-creep itself into a full
+                  fledged wishlist/registry/whatever-kind-of-list-you-want
+                  builder called fillaneed
                 </p>
                 <span className="mx-1 inline-block rounded-sm border border-black bg-green-400 p-[1px]">
                   {" "}
                   <Scroll size={14} />{" "}
                 </span>
               </span>
-
-              <p>
-                This project was a ton of fun and I&apos;m proud to have built a
-                tool that is both performant and a joy to interact with.
-              </p>
             </div>
           </div>
         </section>

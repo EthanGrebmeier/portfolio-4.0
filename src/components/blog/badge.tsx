@@ -18,10 +18,10 @@ const Badge = ({ children, icon, color }: BadgeProps) => {
   const colorClass = badgeColors[color];
   return (
     <div
-      className={`${colorClass} mb-4 flex h-fit w-fit items-center gap-4 rounded-xl border-2 border-black p-2 text-black`}
+      className={`${colorClass} mb-4 flex h-fit w-fit items-center gap-2 rounded-xl border-2 border-black px-2 py-1 text-black`}
     >
       {icon}
-      <p className="font-serif text-xl">{children}</p>
+      <p className="font-sans text-xl font-semibold">{children}</p>
     </div>
   );
 };
