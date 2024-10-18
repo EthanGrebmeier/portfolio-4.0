@@ -27,6 +27,8 @@ const variants: Variants = {
 
 const SavedImages = () => {
   const [savedImages, setSavedImages] = useAtom(savedImagesAtom);
+  const [offset, setOffset] = React.useState(0);
+  const [dragField, setDragField] = React.useState(0);
 
   const removeImage = (index: number) => {
     const newImages = [...savedImages];
@@ -34,19 +36,45 @@ const SavedImages = () => {
     setSavedImages(newImages);
   };
 
-  const canDrag = React.useMemo(() => savedImages.length > 1, [savedImages]);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const dragFieldRef = useRef<HTMLDivElement>(null);
 
-  const boundingRef = useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    const updateOffset = () => {
+      if (wrapperRef.current && contentRef.current) {
+        const { width } = wrapperRef.current.getBoundingClientRect();
+
+        const offSetWidth = contentRef.current.scrollWidth;
+        const newOffset = offSetWidth - width;
+
+        setOffset(newOffset);
+        setDragField(offSetWidth);
+      }
+    };
+
+    // Set Initial Value
+    updateOffset();
+
+    // Check for resizing Events.
+    window.addEventListener("resize", updateOffset);
+    return () => {
+      window.removeEventListener("resize", updateOffset);
+    };
+  }, []);
+
+  const canDrag = React.useMemo(() => offset > 0, [offset]);
   return (
     <div
-      className="relative flex flex-1 flex-col gap-4 overflow-x-hidden  py-4"
-      ref={boundingRef}
+      className="relative flex flex-1 flex-col gap-4 overflow-hidden  py-4"
+      ref={wrapperRef}
     >
       {savedImages.length ? (
         <motion.div
+          ref={contentRef}
           dragConstraints={{
-            left: -savedImages.length - 1 * (112 - 8),
-            right: 0,
+            left: -offset,
+            right: 16,
           }}
           whileDrag={{
             cursor: "grabbing",
