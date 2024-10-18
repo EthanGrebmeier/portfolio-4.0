@@ -114,7 +114,7 @@ const SavedImages = () => {
                 <img
                   src={image}
                   draggable={false}
-                  className=" h-full w-full select-none  overflow-hidden rounded-lg border-2 border-black object-cover"
+                  className=" h-full w-full  overflow-hidden rounded-lg border-2 border-black object-cover"
                 />
               </motion.div>
             </AnimatePresence>
