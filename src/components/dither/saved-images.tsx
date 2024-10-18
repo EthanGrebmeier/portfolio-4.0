@@ -2,11 +2,28 @@ import { useAtom } from "jotai";
 import React, { useRef } from "react";
 import { savedImagesAtom } from "./atom";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, Variants, motion } from "framer-motion";
 import { Trash2 } from "lucide-react";
 import { cn } from "~/helpers/cn";
 
 const imageSkews = [10, -12, 4, -4, 3, -2, 0, -5];
+
+const variants: Variants = {
+  initial: () => ({
+    scale: 0.4,
+    rotate: 0,
+  }),
+
+  hover: {
+    scale: 1.1,
+    rotate: 0,
+    zIndex: 4,
+  },
+  animate: (i) => ({
+    scale: 1,
+    rotate: imageSkews[i % imageSkews.length],
+  }),
+};
 
 const SavedImages = () => {
   const [savedImages, setSavedImages] = useAtom(savedImagesAtom);
@@ -27,7 +44,10 @@ const SavedImages = () => {
     >
       {savedImages.length ? (
         <motion.div
-          dragConstraints={boundingRef}
+          dragConstraints={{
+            left: -savedImages.length - 1 * (112 - 8),
+            right: 0,
+          }}
           whileDrag={{
             cursor: "grabbing",
           }}
@@ -42,19 +62,11 @@ const SavedImages = () => {
           {[...savedImages].map((image, index) => (
             <AnimatePresence key={image.slice(80, 120)}>
               <motion.div
-                initial={{
-                  scale: 0.4,
-                  rotate: 0,
-                }}
-                animate={{
-                  scale: 1,
-                  rotate: imageSkews[index % imageSkews.length],
-                }}
-                whileHover={{
-                  rotate: 0,
-                  scale: 1.1,
-                  zIndex: 4,
-                }}
+                custom={savedImages.length - index}
+                initial="initial"
+                animate="animate"
+                whileHover="hover"
+                variants={variants}
                 exit={{
                   scale: 0,
                   rotate: 0,
@@ -66,7 +78,8 @@ const SavedImages = () => {
                 </button>
                 <img
                   src={image}
-                  className="pointer-events-none h-full w-full  select-none overflow-hidden rounded-lg border-2 border-black object-cover"
+                  draggable={false}
+                  className=" h-full w-full select-none  overflow-hidden rounded-lg border-2 border-black object-cover"
                 />
               </motion.div>
             </AnimatePresence>
