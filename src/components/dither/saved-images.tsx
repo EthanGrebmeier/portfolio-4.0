@@ -104,16 +104,24 @@ const SavedImages = () => {
                 <button className="absolute right-1 top-1 rounded-lg border-2 border-black bg-red-400 p-1">
                   <Trash2 size={15} onClick={() => removeImage(index)} />
                 </button>
-                <a
-                  href={image}
-                  download="Dithered Image"
+                <button
+                  onClick={async () => {
+                    const fetchedImage = await fetch(image);
+                    const blob = await fetchedImage.blob();
+                    const files = [
+                      new File([blob], "image.png", {
+                        type: "image/png",
+                      }),
+                    ];
+                    navigator.share({ files });
+                  }}
                   className="absolute bottom-1 right-1 rounded-lg border-2 border-black bg-green-400 p-1"
                 >
                   <Download size={15} />
-                </a>
+                </button>
                 <img
                   src={image}
-                  // draggable={false}
+                  draggable={false}
                   className=" h-full w-full  overflow-hidden rounded-lg border-2 border-black object-cover"
                 />
               </motion.div>
