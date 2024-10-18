@@ -152,7 +152,7 @@ const Dither = () => {
                   <Button className="bg-green-400">Saved Images</Button>
                 </DrawerTrigger>
                 <DrawerContent>
-                  <div className="p-4">
+                  <div>
                     <DrawerHeader>
                       <DrawerTitle>Saved Images</DrawerTitle>
                     </DrawerHeader>
