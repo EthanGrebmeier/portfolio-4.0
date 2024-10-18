@@ -34,7 +34,7 @@ const Dither = () => {
   const [ditherColorTwo, setDitherColorTwo] = useAtom(ditherColorTwoAtom);
   const [isSavedImagesOpen, setIsSavedImagesOpen] = useState(false);
 
-  const isDesktop = useMediaQuery("(min-width: 924px)");
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   const handleImageLoad = (
     image: HTMLImageElement,

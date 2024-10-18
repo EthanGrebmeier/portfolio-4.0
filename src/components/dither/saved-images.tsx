@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { savedImagesAtom } from "./atom";
 import Image from "next/image";
 import { AnimatePresence, Variants, motion } from "framer-motion";
-import { Trash2 } from "lucide-react";
+import { Download, Trash2 } from "lucide-react";
 import { cn } from "~/helpers/cn";
 
 const imageSkews = [10, -12, 4, -4, 3, -2, 0, -5];
@@ -40,7 +40,7 @@ const SavedImages = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const dragFieldRef = useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     const updateOffset = () => {
       if (wrapperRef.current && contentRef.current) {
         const { width } = wrapperRef.current.getBoundingClientRect();
@@ -99,11 +99,18 @@ const SavedImages = () => {
                   scale: 0,
                   rotate: 0,
                 }}
-                className="relative h-28 w-28 overflow-hidden [&:not(:first-child)]:-ml-2"
+                className="relative size-44 overflow-hidden  lg:size-28 [&:not(:first-child)]:-ml-2"
               >
                 <button className="absolute right-1 top-1 rounded-lg border-2 border-black bg-red-400 p-1">
                   <Trash2 size={15} onClick={() => removeImage(index)} />
                 </button>
+                <a
+                  href={image}
+                  download="Dithered Image"
+                  className="absolute bottom-1 right-1 rounded-lg border-2 border-black bg-green-400 p-1"
+                >
+                  <Download size={15} />
+                </a>
                 <img
                   src={image}
                   draggable={false}
@@ -114,7 +121,7 @@ const SavedImages = () => {
           ))}
         </motion.div>
       ) : (
-        <div className="flex h-28 w-full items-center justify-center">
+        <div className="flex h-44 w-full items-center justify-center lg:h-28">
           <p className="-translate-1/2 absolute left-1/2 top-1/2 w-max  -translate-x-1/2">
             {" "}
             No saved images{" "}
