@@ -113,7 +113,7 @@ const SavedImages = () => {
                 </a>
                 <img
                   src={image}
-                  draggable={false}
+                  // draggable={false}
                   className=" h-full w-full  overflow-hidden rounded-lg border-2 border-black object-cover"
                 />
               </motion.div>
