@@ -129,9 +129,9 @@ const Dither = () => {
           ) : (
             <div className="flex gap-4">
               <Drawer repositionInputs={false}>
-                <div className="absolute bottom-4 right-6">
+                <div className="absolute bottom-8 right-6">
                   <DrawerTrigger asChild>
-                    <Button className=" flex items-center gap-2 border-[3px] border-black bg-blue-400 p-4">
+                    <Button className=" flex items-center gap-2 border-[3px] border-black bg-blue-400">
                       {ditheredSource ? "Edit Image" : "Dither Image"}
                       <ImageIcon size={35} />
                     </Button>
