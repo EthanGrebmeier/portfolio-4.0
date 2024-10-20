@@ -104,7 +104,7 @@ const SavedImages = () => {
                   scale: 0,
                   rotate: 0,
                 }}
-                className="relative size-28 overflow-hidden  @lg:size-64 [&:not(:first-child)]:-ml-2"
+                className="relative size-44 overflow-hidden  @lg:size-64 [&:not(:first-child)]:-ml-2"
               >
                 <button className="absolute right-1 top-1 rounded-lg border-2 border-black bg-red-400 p-1">
                   <Trash2 size={15} onClick={() => removeImage(index)} />
