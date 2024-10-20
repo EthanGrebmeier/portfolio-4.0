@@ -12,6 +12,7 @@ import { useAtomValue } from "jotai";
 import { motion, Variants } from "framer-motion";
 import { DialogDescription } from "@radix-ui/react-dialog";
 import ResponsiveDialog from "../ui/responsive-dialog";
+import { ImageIcon } from "lucide-react";
 
 const imageSkews = [10, -12, 14, -6, 9, -17, 0, -5];
 
@@ -30,7 +31,6 @@ const variants: Variants = {
     rotate: (imageSkews[i % imageSkews.length] as number) * 0.56,
     x: "-50%",
     y: "-50%",
-    backgroundColor: "rgba(0,0,0,0.5)",
   }),
 };
 
@@ -51,18 +51,32 @@ const SavedImagesDialog = () => {
             whileHover="hover"
             className="group relative size-24"
           >
-            {savedImages.map((image, index) => (
-              <motion.img
-                key={image.slice(80, 120)}
-                src={image}
-                custom={index}
-                variants={variants}
-                className="absolute left-1/2 top-1/2 size-24 -translate-x-1/2 -translate-y-1/2 rounded-xl border-2 border-black object-cover"
-                style={{
-                  zIndex: index,
-                }}
-              />
-            ))}
+            {savedImages.length
+              ? savedImages.map((image, index) => (
+                  <motion.img
+                    key={image.slice(80, 120)}
+                    src={image}
+                    custom={index}
+                    variants={variants}
+                    className="absolute left-1/2 top-1/2 size-24 -translate-x-1/2 -translate-y-1/2 rounded-xl border-2 border-black object-cover"
+                    style={{
+                      zIndex: index,
+                    }}
+                  />
+                ))
+              : [0, 1, 2].map((num, index) => (
+                  <motion.div
+                    key={num}
+                    custom={index}
+                    variants={variants}
+                    className="absolute left-1/2 top-1/2 flex size-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl border-2 border-black bg-white object-cover"
+                    style={{
+                      zIndex: index,
+                    }}
+                  >
+                    <ImageIcon size={20} />
+                  </motion.div>
+                ))}
           </motion.div>
         </button>
       }
