@@ -24,7 +24,7 @@ import { ditherTypes, getRgbaFromHex } from "~/lib/dither";
 import SavedImages from "./saved-images";
 import Button from "../ui/button";
 import SavedImagesDialog from "./saved-images-dialog";
-import { Image } from "lucide-react";
+import { Image as ImageIcon } from "lucide-react";
 
 const Dither = () => {
   const [imageSrc, setImageSrc] = React.useState<string>();
@@ -133,7 +133,7 @@ const Dither = () => {
                   <DrawerTrigger asChild>
                     <Button className=" flex items-center gap-2 border-[3px] border-black bg-blue-400 p-4">
                       {ditheredSource ? "Edit Image" : "Dither Image"}
-                      <Image size={35} />
+                      <ImageIcon size={35} />
                     </Button>
                   </DrawerTrigger>
                 </div>
