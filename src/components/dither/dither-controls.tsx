@@ -43,7 +43,7 @@ const DitherControls = ({
       <div className=" z-10 flex w-full flex-col gap-2 font-sans text-xl text-black">
         <p className="text-lg font-light"> Image </p>
         <div className="w-full rounded-xl bg-black">
-          <div className="w-full -translate-y-1 cursor-pointer overflow-hidden rounded-xl border-2 border-black bg-green-400 px-2 py-1 font-sans text-xl  text-black transition-all hover:translate-y-0">
+          <div className="w-full -translate-y-1.5 cursor-pointer overflow-hidden rounded-2xl border-2 border-black bg-green-400 px-2 py-1 font-sans text-xl font-medium  text-black transition-all hover:-translate-y-1 active:-translate-y-0.5">
             <label
               htmlFor="image-upload"
               className="flex  cursor-pointer items-center justify-center gap-2"

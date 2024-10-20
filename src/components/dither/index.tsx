@@ -23,6 +23,8 @@ import { DitherType, RGBA } from "./types";
 import { ditherTypes, getRgbaFromHex } from "~/lib/dither";
 import SavedImages from "./saved-images";
 import Button from "../ui/button";
+import SavedImagesDialog from "./saved-images-dialog";
+import { Image } from "lucide-react";
 
 const Dither = () => {
   const [imageSrc, setImageSrc] = React.useState<string>();
@@ -109,7 +111,7 @@ const Dither = () => {
             <div className="flex max-w-[240px] flex-col gap-4">
               <div className="flex flex-col gap-2">
                 <p className="text-lg  font-semibold">Controls</p>
-                <div className="h-fit w-[240px] rounded-xl border-2 border-black p-2 transition-all">
+                <div className="h-fit w-[240px] rounded-xl border-2 border-black p-2 transition-all ">
                   <DitherControls
                     ditherType={ditherType}
                     setDitherType={setDitherType}
@@ -118,20 +120,23 @@ const Dither = () => {
                 </div>
               </div>
               <div className="flex flex-1 flex-col gap-2">
-                <p className="text-lg font-semibold"> Saved Images</p>
-                <div className="flex-1 rounded-xl border-2 border-black">
-                  <SavedImages />
+                <div className="flex justify-between gap-2">
+                  <p className="text-lg font-semibold"> Saved Images</p>
                 </div>
+                <SavedImagesDialog />
               </div>
             </div>
           ) : (
             <div className="flex gap-4">
               <Drawer repositionInputs={false}>
-                <DrawerTrigger asChild>
-                  <Button className="bg-blue-400">
-                    {ditheredSource ? "Edit Image" : "Dither Image"}
-                  </Button>
-                </DrawerTrigger>
+                <div className="absolute bottom-4 right-6">
+                  <DrawerTrigger asChild>
+                    <Button className=" flex items-center gap-2 border-[3px] border-black bg-blue-400 p-4">
+                      {ditheredSource ? "Edit Image" : "Dither Image"}
+                      <Image size={35} />
+                    </Button>
+                  </DrawerTrigger>
+                </div>
                 <DrawerContent>
                   <div className="flex flex-col items-center gap-8 p-4">
                     <DrawerTitle>Dither Controls</DrawerTitle>
@@ -143,23 +148,9 @@ const Dither = () => {
                   </div>
                 </DrawerContent>
               </Drawer>
-              <Drawer
-                open={isSavedImagesOpen}
-                onOpenChange={setIsSavedImagesOpen}
-                repositionInputs={false}
-              >
-                <DrawerTrigger asChild>
-                  <Button className="bg-green-400">Saved Images</Button>
-                </DrawerTrigger>
-                <DrawerContent>
-                  <div>
-                    <DrawerHeader>
-                      <DrawerTitle>Saved Images</DrawerTitle>
-                    </DrawerHeader>
-                    <SavedImages />
-                  </div>
-                </DrawerContent>
-              </Drawer>
+              <div className="absolute bottom-4 left-6">
+                <SavedImagesDialog />
+              </div>
             </div>
           )}
         </div>

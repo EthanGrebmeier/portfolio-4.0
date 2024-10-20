@@ -17,12 +17,15 @@ import {
   DialogTrigger,
 } from "./dialog";
 import { DialogTitle } from "@radix-ui/react-dialog";
+import { cn } from "~/helpers/cn";
 
 type ResponsiveDialogProps = {
   children: React.ReactNode;
   title: string;
   description?: string;
   trigger: React.ReactNode;
+  bodyClassName?: string;
+  headerClassName?: string;
 };
 
 const ResponsiveDialog = ({
@@ -30,6 +33,8 @@ const ResponsiveDialog = ({
   title,
   description,
   trigger,
+  bodyClassName,
+  headerClassName,
 }: ResponsiveDialogProps) => {
   const [showDialog, setShowDialog] = React.useState(false);
 
@@ -39,14 +44,14 @@ const ResponsiveDialog = ({
     return (
       <Dialog>
         <DialogTrigger asChild>{trigger}</DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
+        <DialogContent className={bodyClassName}>
+          <DialogHeader className={cn(headerClassName)}>
             <DialogTitle>{title}</DialogTitle>
             {description && (
               <DialogDescription>{description}</DialogDescription>
             )}
           </DialogHeader>
-          <div className="p-4">{children}</div>
+          <div className={cn("p-4", bodyClassName)}>{children}</div>
         </DialogContent>
       </Dialog>
     );
@@ -56,11 +61,11 @@ const ResponsiveDialog = ({
     <Drawer open={showDialog} onOpenChange={setShowDialog}>
       <DrawerTrigger asChild>{trigger}</DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader>
+        <DrawerHeader className={cn(headerClassName)}>
           <DrawerTitle>{title}</DrawerTitle>
           {description && <DrawerDescription>{description}</DrawerDescription>}
         </DrawerHeader>
-        <div className="p-4">{children}</div>
+        <div className={cn("p-4", bodyClassName)}>{children}</div>
       </DrawerContent>
     </Drawer>
   );

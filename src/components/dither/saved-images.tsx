@@ -40,6 +40,10 @@ const SavedImages = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const dragFieldRef = useRef<HTMLDivElement>(null);
 
+  const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
   React.useLayoutEffect(() => {
     const updateOffset = () => {
       if (wrapperRef.current && contentRef.current) {
@@ -61,12 +65,12 @@ const SavedImages = () => {
     return () => {
       window.removeEventListener("resize", updateOffset);
     };
-  }, []);
+  }, [savedImages]);
 
   const canDrag = React.useMemo(() => offset > 0, [offset]);
   return (
     <div
-      className="relative flex flex-1 flex-col gap-4 overflow-hidden  py-4"
+      className="relative flex flex-1 flex-col gap-4 py-16 @container"
       ref={wrapperRef}
     >
       {savedImages.length ? (
@@ -84,12 +88,13 @@ const SavedImages = () => {
           }}
           drag={canDrag ? "x" : false}
           className={cn(
-            "flex w-max  flex-row-reverse flex-nowrap items-center  px-4 ",
+            "flex w-max  flex-row-reverse flex-nowrap items-center  px-12 ",
           )}
         >
-          {[...savedImages].map((image, index) => (
-            <AnimatePresence key={image.slice(80, 120)}>
+          <AnimatePresence>
+            {[...savedImages].map((image, index) => (
               <motion.div
+                key={image.slice(80, 120)}
                 custom={savedImages.length - index}
                 initial="initial"
                 animate="animate"
@@ -99,7 +104,7 @@ const SavedImages = () => {
                   scale: 0,
                   rotate: 0,
                 }}
-                className="relative size-44 overflow-hidden  lg:size-28 [&:not(:first-child)]:-ml-2"
+                className="relative size-28 overflow-hidden  @lg:size-64 [&:not(:first-child)]:-ml-2"
               >
                 <button className="absolute right-1 top-1 rounded-lg border-2 border-black bg-red-400 p-1">
                   <Trash2 size={15} onClick={() => removeImage(index)} />
@@ -125,12 +130,12 @@ const SavedImages = () => {
                   className=" h-full w-full  overflow-hidden rounded-lg border-2 border-black object-cover"
                 />
               </motion.div>
-            </AnimatePresence>
-          ))}
+            ))}
+          </AnimatePresence>
         </motion.div>
       ) : (
-        <div className="flex h-44 w-full items-center justify-center lg:h-28">
-          <p className="-translate-1/2 absolute left-1/2 top-1/2 w-max  -translate-x-1/2">
+        <div className="flex h-28 w-full items-center justify-center @lg:h-64">
+          <p className="absolute left-1/2 top-1/2 w-max -translate-x-1/2  -translate-y-1/2">
             {" "}
             No saved images{" "}
           </p>
