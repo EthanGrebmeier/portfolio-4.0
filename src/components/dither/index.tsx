@@ -148,7 +148,7 @@ const Dither = () => {
                   </div>
                 </DrawerContent>
               </Drawer>
-              <div className="absolute bottom-4 left-6">
+              <div className="absolute bottom-4 left-6 z-20">
                 <SavedImagesDialog />
               </div>
             </div>
