@@ -29,7 +29,7 @@ const BubbleLink = ({
       onMouseLeave={() => setIsInternalHover(false)}
     >
       <motion.div
-        className={`group flex h-7 items-center gap-2 overflow-hidden rounded-l-full rounded-r-full border border-black bg-white  text-black `}
+        className={`group flex h-6 items-center gap-2 overflow-hidden rounded-l-full rounded-r-full border border-black bg-white  text-black `}
         animate={{
           width: width,
         }}
@@ -41,7 +41,7 @@ const BubbleLink = ({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, transition: { duration: 0.1 } }}
-                className="relative w-max"
+                className="relative"
                 ref={textRef}
               >
                 {text}

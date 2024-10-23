@@ -12,6 +12,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import Notes from "./Notes";
+import useMeasure from "react-use-measure";
 
 interface PlayerProps {
   initialSongData: SongData;
@@ -19,8 +20,8 @@ interface PlayerProps {
 
 const Player = ({ initialSongData }: PlayerProps) => {
   const [songData, setSongData] = useState(initialSongData);
-  const [textWidth, setTextWidth] = useState(0);
-  const [containerWidth, setContainerWidth] = useState(0);
+  const [textRef, { width: textWidth }] = useMeasure();
+  const [containerRef, { width: containerWidth }] = useMeasure();
   const controls = useAnimationControls();
 
   const x = useMotionValue(0);
@@ -42,15 +43,20 @@ const Player = ({ initialSongData }: PlayerProps) => {
   }, []);
 
   useEffect(() => {
-    controls.stop();
-
-    if (textWidth > containerWidth - 24) {
+    if (textWidth > containerWidth) {
       controls.start({
-        x: containerWidth - textWidth - 24,
+        x: containerWidth - textWidth,
       });
     } else {
-      controls.start({ x: undefined });
+      controls.start({ x: 0 });
     }
+
+    return () => {
+      textWidth &&
+        controls.set({
+          x: 0,
+        });
+    };
   }, [songData, textWidth, containerWidth, controls]);
 
   if (!songData) {
@@ -59,12 +65,10 @@ const Player = ({ initialSongData }: PlayerProps) => {
 
   return (
     <motion.div className="flex h-full w-full flex-col items-start justify-between gap-4 sm:flex-row sm:items-center lg:flex-col lg:items-start lg:gap-0">
-      <div className="w-full max-w-[400px]">
+      <div className="w-full">
         <div
-          ref={(containerRef) =>
-            setContainerWidth(containerRef?.offsetWidth || 0)
-          }
-          className="-mx-4 flex-col justify-start px-4"
+          ref={containerRef}
+          className="-mx-4 w-full flex-col justify-start px-4"
         >
           <h2 className="font-serif text-2xl"> Listening To:</h2>
           <span>
@@ -78,7 +82,7 @@ const Player = ({ initialSongData }: PlayerProps) => {
               }}
               className="w-max font-serif text-3xl"
               key={songData.name}
-              ref={(textRef) => setTextWidth(textRef?.offsetWidth || 0)}
+              ref={textRef}
             >
               {" "}
               {songData.name} -{" "}

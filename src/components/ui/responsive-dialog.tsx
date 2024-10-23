@@ -51,7 +51,7 @@ const ResponsiveDialog = ({
               <DialogDescription>{description}</DialogDescription>
             )}
           </DialogHeader>
-          <div className={cn("p-4", bodyClassName)}>{children}</div>
+          <div>{children}</div>
         </DialogContent>
       </Dialog>
     );

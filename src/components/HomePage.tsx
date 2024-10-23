@@ -18,6 +18,8 @@ import { BriefcaseBusiness, Locate, LocateFixed, MapPin } from "lucide-react";
 import ChessBlock from "./chess/chess-block";
 import ChessServerWrapper from "./chess/server-wrapper";
 import Bars from "./Bars/Bars";
+import ResponsiveDialog from "./ui/responsive-dialog";
+import ProjectGallery from "./project-gallery";
 
 export const metadata = {
   title: "Ethan Grebmeier",
@@ -117,14 +119,9 @@ const HomePage: NextPage = () => {
 
           <Block
             animationDelay={0.5}
-            className="relative order-7 col-span-8 row-span-3 flex items-center justify-center bg-yellow-300 md:order-none lg:col-span-2 lg:row-span-3"
+            className="relative order-7 col-span-8 row-span-3 flex items-center justify-center gap-8 bg-green-100 md:order-none lg:col-span-2 lg:row-span-3 "
           >
-            <h2>
-              <FlipText
-                text="Design Engineer"
-                className="mt-1 font-serif text-5xl md:text-end md:text-4xl"
-              />{" "}
-            </h2>
+            <ProjectGallery />
           </Block>
 
           <Block

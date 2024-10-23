@@ -23,6 +23,7 @@ const FlipText = ({
         delay: custom * 0.08,
         duration: 0.15,
         ease: [0.2, 0.65, 0.3, 0.9],
+        type: "spring",
       },
     }),
   };

@@ -28,7 +28,7 @@
     "date-fns": "^3.6.0",
     "express-rate-limit": "^6.7.0",
     "express-slow-down": "^1.6.0",
-    "framer-motion": "^11.3.2",
+    "framer-motion": "^11.11.9",
     "jotai": "^2.10.0",
     "lru-cache": "^8.0.4",
     "lucide-react": "^0.408.0",
