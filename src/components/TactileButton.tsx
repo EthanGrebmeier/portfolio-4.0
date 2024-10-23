@@ -44,7 +44,10 @@ const TactileButton = ({
         whileHover="hover"
         whileTap="tap"
         variants={buttonVariants}
-        className={`flex w-fit items-center gap-4 rounded-l-full rounded-r-full border-4 border-black  px-4 py-1 ${className}`}
+        className={cn(
+          "flex w-fit items-center gap-4 rounded-l-full rounded-r-full border-4 border-black  px-4 py-1",
+          className,
+        )}
       >
         <FlipText
           text={children}

@@ -139,8 +139,8 @@ const ContactModal = () => {
               </svg>
             )
           }
-          buttonClassName="mt-8"
-          className=" bg-green-400"
+          buttonClassName="mt-8 w-full "
+          className=" w-full justify-center bg-green-400 "
         >
           {isSuccess
             ? "Sent! "

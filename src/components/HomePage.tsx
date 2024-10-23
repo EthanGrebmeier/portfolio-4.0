@@ -208,7 +208,7 @@ const HomePage: NextPage = () => {
           </Block>
           <Block
             animationDelay={1.2}
-            className="group order-11 col-span-8 row-span-1 flex items-center bg-orange-400 md:order-none lg:col-span-2 lg:row-span-1"
+            className="group order-11 col-span-8 row-span-1 flex items-center bg-yellow-400 md:order-none lg:col-span-2 lg:row-span-1"
           >
             <Link
               className="w-full font-serif text-2xl font-medium"

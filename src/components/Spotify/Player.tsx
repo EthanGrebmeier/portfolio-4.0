@@ -43,6 +43,9 @@ const Player = ({ initialSongData }: PlayerProps) => {
   }, []);
 
   useEffect(() => {
+    controls.set({
+      x: 0,
+    });
     if (textWidth > containerWidth) {
       controls.start({
         x: containerWidth - textWidth,
@@ -50,13 +53,6 @@ const Player = ({ initialSongData }: PlayerProps) => {
     } else {
       controls.start({ x: 0 });
     }
-
-    return () => {
-      textWidth &&
-        controls.set({
-          x: 0,
-        });
-    };
   }, [songData, textWidth, containerWidth, controls]);
 
   if (!songData) {
