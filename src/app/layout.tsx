@@ -1,8 +1,9 @@
-import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
 
 import "../styles/globals.css";
 import { Provider } from "jotai";
+import Head from "next/head";
 
 const BodyFont = Plus_Jakarta_Sans({
   weight: ["400", "600"],
@@ -34,7 +35,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" translate="no">
+      <Head>
+        <meta name="google" content="notranslate" />
+      </Head>
       <Provider>
         <body className={`${BodyFont.className} ${junicode.variable} `}>
           {children}
