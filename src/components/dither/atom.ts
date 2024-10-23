@@ -28,9 +28,32 @@ const initialColors: Color[] = [
   },
 ] as const;
 
-export const paletteSwatchesAtom = atom<Color[]>(initialColors);
-export const ditherColorOneAtom = atom<Color>(colorOne);
-export const ditherColorTwoAtom = atom<Color>(colorTwo);
+const paletteSwatchesJsonStorage = createJSONStorage<Color[]>(
+  () => localStorage,
+);
+
+export const paletteSwatchesAtom = atomWithStorage<Color[]>(
+  "paletteColors",
+  initialColors,
+  paletteSwatchesJsonStorage,
+  {
+    getOnInit: true,
+  },
+);
+
+const ditherColorOneJsonStorage = createJSONStorage<Color>(() => localStorage);
+const ditherColorTwoJsonStorage = createJSONStorage<Color>(() => localStorage);
+
+export const ditherColorOneAtom = atomWithStorage<Color>(
+  "ditherColorOne",
+  colorOne,
+  ditherColorOneJsonStorage,
+);
+export const ditherColorTwoAtom = atomWithStorage<Color>(
+  "ditherColorTwo",
+  colorTwo,
+  ditherColorTwoJsonStorage,
+);
 
 const savedImageJsonStorage = createJSONStorage<string[]>(() => localStorage);
 

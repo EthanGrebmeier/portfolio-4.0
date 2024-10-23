@@ -51,7 +51,7 @@ const ColorPalette = ({ ditherColor, setDitherColor }: ColorPaletteProps) => {
           height: bounds.height,
           width: bounds.width,
         }}
-        transition={{ duration: 0.25, ease: [0.48, 0.15, 0.25, 0.96] }}
+        transition={{ duration: 0.15 }}
       >
         <div ref={elementRef}>
           {panelName === "palette" ? (
@@ -145,10 +145,10 @@ const ColorPalette = ({ ditherColor, setDitherColor }: ColorPaletteProps) => {
                     ref={colorInputRef}
                     onChange={(e) => setColorInput(e.target.value)}
                   />
-                  <div className="relative h-10 w-12 overflow-hidden rounded-xl border-2 border-black bg-none">
+                  <div className="relative h-10 w-16 overflow-hidden rounded-xl border-2 border-black bg-none">
                     <div className="h-full w-full overflow-hidden rounded-lg">
                       <input
-                        className="-left-1/2 -top-1/2 h-[250%] w-[250%] -translate-x-1/4 -translate-y-1/4 cursor-pointer rounded-full border-none p-0 outline-none"
+                        className="-left-1/2 -top-1/2 h-[250%] w-[275%] -translate-x-1/4 -translate-y-1/4 cursor-pointer rounded-full border-none p-0 outline-none"
                         type="color"
                         value={colorInput}
                         onChange={(e) => setColorInput(e.target.value)}
