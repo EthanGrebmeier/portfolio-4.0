@@ -33,7 +33,7 @@ const ProjectGallery = () => {
               Project Gallery
             </span>
             <Image
-              src="/images/Gallery.png"
+              src="/images/gallery.png"
               alt="Gallery"
               width={120}
               height={120}
