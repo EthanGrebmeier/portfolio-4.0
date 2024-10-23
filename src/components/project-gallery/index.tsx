@@ -1,8 +1,20 @@
+"use client";
+
 import React from "react";
 import ResponsiveDialog from "../ui/responsive-dialog";
 import Image from "next/image";
 import Link from "next/link";
 import GalleryItem from "./gallery-item";
+
+export type Project = {
+  name: string;
+  href: string;
+  image: {
+    src: string;
+    alt: string;
+    className?: string;
+  };
+};
 
 const projects = [
   {
@@ -17,8 +29,9 @@ const projects = [
     name: "Fillaneed",
     href: "https://fillaneed.xyz",
     image: {
-      src: "/images/fillaneed/Scraper.svg",
+      src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNjcm9sbCI+PHBhdGggZD0iTTE5IDE3VjVhMiAyIDAgMCAwLTItMkg0Ii8+PHBhdGggZD0iTTggMjFoMTJhMiAyIDAgMCAwIDItMnYtMWExIDEgMCAwIDAtMS0xSDExYTEgMSAwIDAgMC0xIDF2MWEyIDIgMCAxIDEtNCAwVjVhMiAyIDAgMSAwLTQgMHYyYTEgMSAwIDAgMCAxIDFoMyIvPjwvc3ZnPg==",
       alt: "a sand scraper digging up shapes",
+      className: "bg-green-400",
     },
   },
 ];
