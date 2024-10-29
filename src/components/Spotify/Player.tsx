@@ -128,7 +128,7 @@ const Player = ({ initialSongData }: PlayerProps) => {
               ) : (
                 <div className="h-full w-full select-none rounded-full border-2 border-black bg-green-500"></div>
               )}
-              <div className="absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border border-black bg-green-500">
+              <div className="absolute left-1/2 top-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-black bg-green-500">
                 {" "}
               </div>
               <div className="absolute bottom-1 left-1 right-1 top-1 z-10 rounded-full border border-gray-600 "></div>
